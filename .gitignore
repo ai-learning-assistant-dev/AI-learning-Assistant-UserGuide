@@ -1,0 +1,72 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE/Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary Files
+*.tmp
+*.temp
+.tmp/
+temp/
+
+# Backup Files
+*.bak
+*.backup
+*~
+*.orig
+
+# Log Files
+*.log
+logs/
+
+# Cache Directories
+.cache/
+node_modules/
+.npm/
+
+# Archive Files (keep source docs but ignore temporary extractions)
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Pandoc temporary files
+*.pandoc-tmp*
+
+# Word temporary files
+~$*.docx
+~$*.doc
+
+# Development/Testing
+test/
+tests/
+.test/
+dev/
+draft/
+drafts/
+
+# Obsidian specific (if used for editing)
+.obsidian/
+
+# Personal notes/scratch files
+scratch.md
+notes.md
+todo.md
+personal-*.md
+
+# Environment files
+.env
+.env.local
+.env.*.local

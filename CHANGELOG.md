@@ -4,6 +4,23 @@ All notable changes to the AI Learning Assistant User Guide will be documented i
 
 ## [Unreleased] - 2025-01-07
 
+### Removed
+- **Duplicate Documentation Files** - Cleaned up redundant markdown files after merge
+  - Removed `AI学习助手1.1版本_使用文档.md` (merged into complete guide)
+  - Removed `AI学习助手使用说明-软件版本V1.01.md` (merged into complete guide)  
+  - Removed duplicate `media/` folder (images consolidated in `images/`)
+
+### Changed
+- **Enhanced .gitignore** - Added comprehensive ignore patterns for:
+  - Operating system files (.DS_Store, Thumbs.db)
+  - IDE/editor temporary files
+  - Backup and temporary files
+  - Development/testing directories
+  - Obsidian workspace files
+- **Improved README.md** - Restructured with clear navigation, feature overview, and quick start guide
+
+## [1.0.0] - 2025-01-07
+
 ### Added
 - **Complete User Documentation** - Merged V1.01 and V1.1 documentation into comprehensive guide
 - **Unified Image Management** - Consolidated images from `media/` and `images/` folders into single `images/` directory
