@@ -1,16 +1,62 @@
 # AI学习助手完整使用文档
 
-```table-of-contents
-title: 
-style: nestedList # TOC style (nestedList|nestedOrderedList|inlineFirstLevel)
-minLevel: 0 # Include headings from the specified level
-maxLevel: 0 # Include headings up to the specified level
-include: 
-exclude: 
-includeLinks: true # Make headings clickable
-hideWhenEmpty: false # Hide TOC if no headings are found
-debugInConsole: false # Print debug info in Obsidian console
-```
+## 目录
+
+- [第一部分：基础功能 (V1.01)](#第一部分基础功能-v101)
+  - [1 简介](#1-简介)
+  - [2 下载与安装](#2-下载与安装)
+  - [3 初步配置AI学习助手](#3-初步配置ai学习助手)
+    - [3.1 配置文件仓库](#31-配置文件仓库)
+    - [3.2 加载AI学习助手](#32-加载ai学习助手)
+  - [4 Obsidian使用指南](#4-obsidian使用指南)
+    - [4.1 自带功能](#41-自带功能)
+      - [4.1.1 基础设置](#411-基础设置)
+      - [4.1.2 核心插件](#412-核心插件)
+    - [4.2 第三方插件](#42-第三方插件)
+      - [4.2.1 Editing Toolbar 格式工具栏](#421-editing-toolbar-格式工具栏)
+      - [4.2.2 Floating Toc 悬浮目录](#422-floating-toc-悬浮目录)
+      - [4.2.3 Minimal Theme Settings 极简外观设定](#423-minimal-theme-settings-极简外观设定)
+      - [4.2.4 Excalidraw 手绘板](#424-excalidraw-手绘板)
+      - [4.2.5 Media Extended 多媒体浏览](#425-media-extended-多媒体浏览)
+      - [4.2.6 PDF ++](#426-pdf-)
+      - [4.2.7 Commander 添加命令](#427-commander-添加命令)
+  - [5 AI学习助手使用指南（基础版）](#5-ai学习助手使用指南基础版)
+    - [5.1 copilot插件介绍](#51-copilot插件介绍)
+      - [5.1.1 添加Chat Model](#511-添加chat-model)
+      - [5.1.2 添加Embedding Model](#512-添加embedding-model)
+      - [5.1.3 Basic标签页设置](#513-basic标签页设置)
+      - [5.1.4 其他设置](#514-其他设置)
+      - [5.1.5 QA标签页设置](#515-qa标签页设置)
+      - [5.1.6 Command标签页设置](#516-command标签页设置)
+      - [5.1.7 Advanced设置](#517-advanced设置)
+    - [5.2 AI基本问答流程](#52-ai基本问答流程)
+      - [5.2.1 deepseek R1工作流程](#521-deepseek-r1工作流程)
+      - [5.2.2 学习助手增强问答流程](#522-学习助手增强问答流程)
+- [第二部分：新增功能 (V1.1)](#第二部分新增功能-v11)
+  - [1.1版本功能特性](#11版本功能特性)
+  - [1 AI插件增强功能](#1-ai插件增强功能)
+    - [1.1 人设自定义](#11-人设自定义)
+    - [1.2 多文本内容引用](#12-多文本内容引用)
+  - [2 语音识别(ASR)使用](#2-语音识别asr使用)
+    - [2.1 ASR后端服务部署](#21-asr后端服务部署)
+    - [2.2 transcription插件配置](#22-transcription插件配置)
+    - [2.3 transcription插件使用](#23-transcription插件使用)
+    - [2.4 效果](#24-效果)
+  - [3 文字转语音(TTS)使用](#3-文字转语音tts使用)
+    - [3.1 TTS后端服务部署](#31-tts后端服务部署)
+    - [3.2 obsidian aloud插件使用](#32-obsidian-aloud插件使用)
+  - [4 推荐用法](#4-推荐用法)
+  - [5 使用反馈](#5-使用反馈)
+    - [5.1 已知问题](#51-已知问题)
+- [第三部分：其他功能](#第三部分其他功能)
+  - [6.1 LM Studio](#61-lm-studio)
+    - [6.1.1 下载、安装LM Studio](#611-下载安装lm-studio)
+    - [6.1.2 LM Studio功能介绍](#612-lm-studio功能介绍)
+  - [6.2 硅基流动](#62-硅基流动)
+    - [6.2.1 如何在Obsidian中接入硅基流动？](#621-如何在obsidian中接入硅基流动)
+    - [6.2.2 步骤1：注册并获取API密钥](#622-步骤1注册并获取api密钥)
+    - [6.2.3 步骤2：配置Obsidian Copilot插件](#623-步骤2配置obsidian-copilot插件)
+  - [感谢](#感谢)
 
 # 第一部分：基础功能 (V1.01)
 

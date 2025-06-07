@@ -2,7 +2,14 @@
 
 All notable changes to the AI Learning Assistant User Guide will be documented in this file.
 
-## [Unreleased] - 2025-01-07
+## [Unreleased] - 2025-06-07
+
+### Changed
+- **Table of Contents Format** - Replaced plugin-dependent TOC with standard Markdown
+  - Removed `table-of-contents` codeblock syntax requiring Obsidian plugins
+  - Added manual TOC using pure Markdown list and link syntax
+  - Improved compatibility across all Markdown viewers and platforms
+  - Maintained hierarchical structure with clickable navigation links
 
 ### Removed
 - **Duplicate Documentation Files** - Cleaned up redundant markdown files after merge
@@ -10,7 +17,7 @@ All notable changes to the AI Learning Assistant User Guide will be documented i
   - Removed `AI学习助手使用说明-软件版本V1.01.md` (merged into complete guide)  
   - Removed duplicate `media/` folder (images consolidated in `images/`)
 
-### Changed
+### Previous Changes
 - **Enhanced .gitignore** - Added comprehensive ignore patterns for:
   - Operating system files (.DS_Store, Thumbs.db)
   - IDE/editor temporary files
