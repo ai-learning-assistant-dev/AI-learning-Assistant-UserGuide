@@ -18,6 +18,10 @@ All notable changes to the AI Learning Assistant User Guide will be documented i
   - Development/testing directories
   - Obsidian workspace files
 - **Improved README.md** - Restructured with clear navigation, feature overview, and quick start guide
+- **Standardized Image References** - Unified all image link formats to standard Markdown:
+  - Converted 164+ Obsidian-style `![[filename.png]]` to `![filename.png](./images/filename.png)`
+  - Removed size attributes and inconsistent formatting
+  - Ensured universal compatibility across Markdown viewers
 
 ## [1.0.0] - 2025-01-07
 
