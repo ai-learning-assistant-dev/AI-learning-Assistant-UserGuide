@@ -39,9 +39,9 @@
     - [1.2 多文本内容引用](#12-多文本内容引用)
   - [2 语音识别(ASR)使用](#2-语音识别asr使用)
     - [2.1 ASR后端服务部署](#21-asr后端服务部署)
-    - [2.2 transcription插件配置](#22-transcription插件配置)
-    - [2.3 transcription插件使用](#23-transcription插件使用)
-    - [2.4 效果](#24-效果)
+    - [2.2 使用obsidian transcription视频语音转录](#22-使用obsidian-transcription视频语音转录)
+    - [2.3 使用obsidian whisper 插件实现录音转文字功能](#23-使用obsidian-whisper-插件实现录音转文字功能)
+
   - [3 文字转语音(TTS)使用](#3-文字转语音tts使用)
     - [3.1 TTS后端服务部署](#31-tts后端服务部署)
     - [3.2 obsidian aloud插件使用](#32-obsidian-aloud插件使用)
@@ -592,19 +592,19 @@ flowchart TD
 
 # 第二部分：新增功能 (V1.1)
 
-## 1.1版本功能特性
+## 1.1 版本功能特性
 
 - 通过自定义标签设计，实现定制不同的AI人设，满足对话需求
 
 - 支持引用不同文档内的多段文本内容与AI进行交互
 
-- 支持对本地音视频进行语音识别，并可在windows上通过CPU/CUDA上一键部署
+- 支持对本地音视频进行语音识别，并可在windows上通过CPU/CUDA上一键部署，也可以在apple silicon芯片的mac上通过cpu进行一键部署
 
-- 支持对选中文本进行文字转语音，并可在windows上通过CPU/CUDA上一键部署
+- 支持对选中文本进行文字转语音，并可在windows上通过CPU/CUDA上一键部署，也可以在apple silicon芯片的mac上通过cpu进行一键部署
 
 ## 1 AI插件增强功能
 
-### 1.1 人设自定义
+### 1.1 自定义人设
 
 打开obsidian 的设置界面，找到copliot插件：
 
@@ -614,21 +614,31 @@ flowchart TD
 
 ![descript](./images/image2.png)
 
-可以在选中区域内进行标签设置，新增同名标签后，会将内容加入对应的下拉列表。另外你可以上/下移动或者选中/释放标签来调整生成人设的内容：
+我们可以在选中区域内新增标签，并填写相应的标签内容(注意如果新加的标签与已有的标签重名，则无法成功添加)：
+
+![descript](./images/image2.1.png)
+
+对于已有标签，它会匹配多个标签条目，用于存储这个标签下的各种设定，比如说关于”角色“这个标签，我们可以设置“哲学家”、“科技史研究者”、“欧洲历史研究者”等多个标签条目，但每次一个标签只能选中一个条目。我们可以修改当前选中的标签条目的内容，或者新增/删除对应的标签条目，如下所示：
+
+![descript](./images/image2.3.png)
+
+![descript](./images/image2.2.png)
+
+关于调整不同标签之间的位置，可以通过最左侧的上下箭头实现：
 
 ![descript](./images/image3.png)
 
-当我们设置好了人设的各种所需要的标签，我们在最后一行输入名称比如"科技史研究者"，点击"添加人设"，即可添加相应人设：
+当我们设置好了人设的各种所需要的标签，我们可以在红框处输入名称比如"科技史研究者"，接着点击"添加人设"，即可添加相应人设：
 
 ![descript](./images/image4.png)
 
-添加好后，可以发现所定义人设出现在了"人设列表"中，且每条人设还可以在编辑框中再次优化我们的人设设定：
+添加好后，可以发现所定义人设出现在了"人设列表"中，且还可以在编辑面板中调整我们人设设定：
 
 ![descript](./images/image5.png)
 
-我们可以通过点击指定人设的左侧按钮，即可切换到想要的人设配置上，后续AI助手就会以这个身份来与我们对话。
+最后说明下如何使用，我们可以点击指定人设的左侧按钮，即可切换到想要的人设配置上，后续AI助手就会以这个身份来与我们对话。
 
-你也可以在AI助手的对话框上方切换人设：
+当然，你也可以在AI助手的对话框上方切换人设，如下图：
 
 ![descript](./images/image6.png)
 
@@ -674,7 +684,7 @@ flowchart TD
 |-----------|---------|------|
 | AI-learning-assist-asr-v1.0-cpu.zip | windows10及以上操作系统 | 支持AMD/Nvidia各平台，但仅支持cpu运行，速度相比cuda版本较慢 |
 | AI-learning-assist-asr-v1.0-cuda.zip | windows10及以上操作系统，N卡显存消耗在1G左右 | 支持Nvidia平台，使用显存进行推理，速度较快 |
-| AI-learning-assist-asr-v1.0-mac.zip | macOS操作系统 | 支持mac上cpu运行 |
+| AI-learning-assist-asr-v1.0-mac.zip | apple silicon芯片 macOS操作系统 | 支持mac上cpu运行 |
 
 下载好对应压缩包后，我们进行解压(如果解压时遭遇"路径太长问题"的报错，可以跳转至本文档的"4.1.1"解决问题)，得到以下文件：
 
@@ -686,7 +696,11 @@ flowchart TD
 
 这个地址就是我们后续接下来使用obsidian的语音识别插件transcription需要的端口地址了。如果显示出来这部分结果，就说明后台服务正常运行了。本后端目前选用的是sensevoice-small模型。
 
-### 2.2 transcription插件配置
+### 2.2 使用obsidian transcription视频语音转录
+
+注意使用本插件，需要确保ASR后端服务正常部署，[详情请了解](#21-asr后端服务部署)
+
+#### 2.2.1 配置参数
 
 打开obsidian 的设置界面,找到**transcription**插件,按照图示在选项Transcription engine中选择Whisper ASR
 
@@ -704,25 +718,24 @@ Timestamp interval选择off
 
 ![descript](./images/image19.png)
 
-### 2.3 transcription插件使用
+#### 2.2.2 工具使用
 
-打开一篇引用了本地视频或音频的笔记,使用ctrl+p打开命令行, 手打transcription
+关于transcrition插件的使用，主要有以下几种方法：
 
-![descript](./images/image20.png)
+1.推荐用法-打开一篇引用了本地视频或音频的笔记，我们通过选中待转录的音视频文件，右键的命令列表中点击“transcribe”，进行语音转文字，等待一段时间后就会得到相应的结果，如下图所示：
 
-Transcribe file in view可以选择一个本篇笔记内引用过的视频或音频去处理
+![descript](./images/transcription-1.png)
+
+
+2.通过ctrl+p命令面板中的“Transcribe file in view”，我们可以选择一个本篇笔记内引用过的视频或音频去处理，如下图所示：
 
 ![descript](./images/image21.png)
 
-Add File to Transcription是在系统文件中选一个处理
+3.通过ctrl+p命令面板中的“Add File to Transcription”，可以实现在系统文件中选一个处理，如下图所示：
 
 ![descript](./images/image22.png)
 
-Transcribe all files in view是处理本篇笔记所有的视频或音频
-
-或者右键任意音频或者视频,在菜单中选择🎧Transcribe 稍等推理完成,就会根据语音生成文字
-
-![descript](./images/image23.png)
+4.通过ctrl+p命令面板中的“Transcribe all files in view”，可以处理该篇笔记所有的视频或音频
 
 如果是本地部署，成功添加视频后会看到后台正在打印一些处理过程：
 
@@ -730,15 +743,36 @@ Transcribe all files in view是处理本篇笔记所有的视频或音频
 
 处理完毕后，会直接在当前笔记下生成转换的文字信息。
 
-### 2.4 效果
+#### 2.2.3 效果展示
 
-处理12分钟的中⽂⾳频:【⾏动建议】⾸要任务不是做群众⼯作，⽽是做⾃⼰和⾃⼰⼈的⼯作.m4a
+处理一段选中的音频，会得到类似以下的结果：
 
-![descript](./images/image25.png)
+![descript](./images/transcibe-2.png)
 
-\...\....中间省略一大堆
 
-![descript](./images/image26.png)
+### 2.3 使用obsidian whisper 插件实现录音转文字功能
+
+注意使用本插件，需要确保ASR后端服务正常部署，[详情请了解](#21-asr后端服务部署)
+
+#### 2.3.1 配置参数
+
+打开obsidian 的设置界面,找到*whisper**插件,按照图示开启本地服务，填入本地服务的url为"http://localhost:9000",其他默认即可，如下图所示：
+
+![descript](./images/asr-whisper-1.png)
+
+
+#### 2.3.2 工具使用
+插件配置好后，可通过在文档中右键执行录音转文字功能：
+
+![descript](./images/asr-whisper-2.png)
+
+点击后会产生以下悬浮窗，可以点击"record"进行录音，"pause"暂停录音，"stop"点击后结束录音，自动生成转录的文字:
+
+![descript](./images/asr-whisper-3.png)
+
+
+![descript](./images/asr-whisper-4.png)
+
 
 ## 3 文字转语音(TTS)使用
 
@@ -754,8 +788,9 @@ Transcribe all files in view是处理本篇笔记所有的视频或音频
 |-----------|---------|------|
 | AI-learning-assist-tts-v1.0-cpu.zip | windows10及以上操作系统 | 支持AMD/Nvidia各平台，但仅支持cpu运行，速度相比cuda版本较慢 |
 | AI-learning-assist-tts-v1.0-cuda.zip | windows10及以上操作系统，N卡显存消耗在1~2G左右 | 支持Nvidia平台，使用显存进行推理，速度较快 |
+| AI-learning-assist-tts-v1.0-mac.zip | apple silicon芯片的mac | 支持cpu运行，速度相比cuda版本较慢 |
 
-下载好对应压缩包后，我们进行解压(如果解压时遭遇"路径太长问题"的报错，可以跳转至本文档的"4.1.1"解决问题)，得到以下文件：
+下载好对应压缩包后，我们进行解压(在windows上如果解压时遭遇"路径太长问题"的报错，可以跳转至本文档的"4.1.1"解决问题)，得到以下文件：
 
 ![descript](./images/image27.png)
 
