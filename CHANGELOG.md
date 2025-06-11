@@ -2,7 +2,14 @@
 
 All notable changes to the AI Learning Assistant User Guide will be documented in this file.
 
-## [Unreleased] - 2025-06-07
+## [Unreleased] - 2025-06-11
+
+### Added
+- **Documentation Contribution Guide** - Enhanced README.md with comprehensive contribution guidelines
+  - Added detailed file structure documentation
+  - Included contribution workflow and best practices
+  - Added pandoc conversion instructions for Word documents
+  - Provided formatting standards and image management guidelines
 
 ### Changed
 - **Table of Contents Format** - Replaced plugin-dependent TOC with standard Markdown
