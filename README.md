@@ -53,6 +53,18 @@ AI学习助手是一款集AI问答、阅读、笔记于一体的学习辅助软�
 pandoc "filename.docx" --extract-media=. -o "output.md"
 ```
 
+
+## ❕其他注意
+
+### 使用文档目录生成
+
+文档的目录在visual studio code/cursor等工具中无法直接显示，需要用obsidian打开并安装“Automatic Table Of Contents”插件，这样通过其语法(ctrl+p打开指令面板，输入insert，找到insert table of content并回车，即可根据Markdown的#段落自动构建目录)就可以生成文档目录了。
+
+
+### 使用文档的pdf导出
+
+打开obsidian，安装插件”Better Export PDF“，在待导出的文档上输入ctrl+p打开命令板，搜索命令"Better Export PDF: 导出当前文件为PDF"。它会打开一个窗口，等待其渲染完毕，即可点击"export"导出pdf文件了！。
+
 ## 🤝 致谢
 
 感谢所有为项目贡献的开发者们！详见[贡献者名单](./AI学习助手完整使用文档.md#感谢)。
