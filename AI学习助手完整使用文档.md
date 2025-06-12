@@ -865,7 +865,7 @@ Timestamp interval选择off
 
 ### 5.1 已知问题
 
-#### 5.1.1 解压时报"路径太长"的报错
+#### 5.1.1 Windows上解压时报"路径太长"的报错
 
 解压上面提供的整合包时产生了"路径太长的报错"，如下图：
 
@@ -885,7 +885,7 @@ Timestamp interval选择off
 
 ![descript](./images/image41.png)
 
-#### 5.1.2 查看隐藏文件
+#### 5.1.2 Windows上如何查看隐藏文件
 
 如果某个文件内存在隐藏文件/文件夹，但无法查看到，可通过点击文件管理器的三个点，再点击"选项"，进入"查看"页面，选择显示隐藏文件与文件夹，最后点击确定保存设置：
 
@@ -896,6 +896,34 @@ Timestamp interval选择off
 最后可以看到我们已经可以看到隐藏文件了：
 
 ![descript](./images/image44.png)
+
+
+#### 5.1.3 MAC上使用整合包产生安全性警告
+
+解压后，直接运行整合包可能会遭遇以下报错：
+
+![descript](./images/5.1.3.png)
+
+这是由于macOS 内置了 Gatekeeper 安全机制，当运行来自非 App Store 或未签名的文件（如整合包中的 `start.command` 或 `cli`）时，会触发安全性警告，导致无法直接运行。这通常是因为文件带有 `com.apple.quarantine` 属性，系统将其视为潜在风险。
+
+
+要解决这个问题，需要通过移除文件的 Quarantine 属性，可以让 macOS 信任这些文件，从而绕过安全性警告。操作需在终端执行，并确保文件来源可信。以下是解决过程：
+1. 打开终端。
+2. 导航到解压得到的整合包的根目录，例如 `/Users/username/Documents/dist`：
+   ```bash
+   cd /path/to/dist
+   ```
+3. 移除目录下所有文件的 Quarantine 标记：
+   ```bash
+   sudo xattr -r -d com.apple.quarantine .
+   ```
+4. 输入管理员密码后，点击 `start.command` 再次尝试运行。
+
+完成后，应能正常运行整合包。
+
+
+
+
 
 # 第三部分：其他功能
 
