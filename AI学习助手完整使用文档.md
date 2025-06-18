@@ -857,6 +857,7 @@ Timestamp interval选择off
 set HF_ENDPOINT=https://hf-mirror.com
 start .\cli\cli.exe run --model-names=kokoro,f5-tts
 ```
+注意，上面给出的内容是bat文件需要的全部命令，请替换原有的bat命令，而不是与原有bat命令进行合并。或者你也可以删除原有bat文件，重新将上面给出的命令写入到"start_exe.bat"中
 
 保存结果后重新点击该文件启动TTS语音服务，就可以实现配置文件的下载以及正常启动服务程序了。
 
