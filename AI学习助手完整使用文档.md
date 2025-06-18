@@ -841,8 +841,27 @@ Timestamp interval选择off
 
 ![descript](./images/image44.png)
 
+#### 4.1.3 windows上初次使用tts整合包产生网络问题
 
-#### 4.1.3 MAC上使用整合包产生安全性警告
+首次使用TTS整合包可能会产生类似如下的报错：
+
+![descript](./images/problem_4_1_3_1.png)
+
+
+这是由于模型的部分配置文件还需要从hugging face上拉取，但由于没有访问外网的流量，所以产生网络报错问题。
+
+我们需要用记事本打开启动文件"start_exe.bat"，添加国内镜像的环境变量“https://hf-mirror.com”，这样可以解决问题：
+
+```bash
+@echo off
+set HF_ENDPOINT=https://hf-mirror.com
+start .\cli\cli.exe run --model-names=kokoro,f5-tts
+```
+
+保存结果后重新点击该文件启动TTS语音服务，就可以实现配置文件的下载以及正常启动服务程序了。
+
+
+#### 4.1.4 MAC上使用整合包产生安全性警告
 
 解压后，直接运行整合包可能会遭遇以下报错：
 
