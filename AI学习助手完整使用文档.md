@@ -36,7 +36,7 @@ AI学习助手的主要功能是基于一款笔记软件，Obsidian。AI学习�
 
 ### 3.1 配置文件仓库
 安装好Obsidian后，接下来我们要配置好Obsidian仓库。首先，新建一个空的文件夹作为，文件夹名不限（示例为Obsidian vaults），该文件夹主要用于放置AI学习助手相关文件，建议不要放置在C盘。
-![创建Obsidian vaults文件夹.png](./images/创建Obsidian vaults文件夹.png)
+![创建Obsidian_vaults文件夹.png](./images/创建Obsidian_vaults文件夹.png)
 
 接下来，回到下载好的AI学习助手文件夹，蒋该文件夹整个文件夹拷贝到刚才创建的空的文件夹（示例为Obsidian vaults）中。
 ![复制AI学习助手文件夹.png](./images/复制ai学习助手文件夹.png)
@@ -95,7 +95,7 @@ Obsidian主界面主要分左边栏，主体，右边栏：
 ![源码示例.png](./images/源码示例.png)
 
 用Obsidian写笔记需要使用markdown语言，对于格式的调整需要通过源码的方式进行设置，对于初学者不太友好，因此，AI学习助手默认添加了第三方插件Editing Toolbar，可以像编辑word文档一样修改、添加格式了。
-![editing toolbar.png](./images/editing toolbar.png)
+![editing_toolbar.png](./images/editing_toolbar.png)
 关于Editing Toolbar，请参考：[[#4.2.1 Editing Toolbar 格式工具栏]]。
 学习更多markdown语法，请参考：[Markdown 链接语法 | Markdown 教程](https://markdown.com.cn/basic-syntax/links.html)
 
@@ -182,11 +182,11 @@ Obsidian会即时储存你的修改，但如果想恢复文件到之前状态，
 #### 4.2.1 Editing Toolbar 格式工具栏
 
 <font color="#92d050">Editing Toolbar</font>可以让用户像编辑word文档那样修改文字的格式。
-![editing toolbar.png](./images/editing toolbar.png)
+![editing_toolbar.png](./images/editing_toolbar.png)
 
 #### 4.2.2 Floating Toc 悬浮目录
 悬浮目录会自动读取当前文档的标题，在右边生成一个<font color="#92d050">大纲</font>的悬浮窗：
-![floating toc.png](./images/floating toc.png)
+![floating_toc.png](./images/floating_toc.png)
 
 主要功能：
 1）<font color="#92d050">展开收起大纲</font>：浮动大纲右上角小箭头，可收起大纲：
@@ -218,7 +218,7 @@ Excalidraw是一款<font color="#92d050">白板绘图工具</font>，支持手�
 
 #### 4.2.5 Media Extended 多媒体浏览
 Media Extended插件可以直接<font color="#92d050">用Obsidian</font><font color="#92d050">浏览</font>网络或本地的<font color="#92d050">视频</font>。比如，我想看b站的[【官方双语】GPT是什么？直观解释Transformer | 深度学习第5章_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV13z421U7cs/?spm_id_from=333.337.search-card.all.click&vd_source=1dfee8e518fd6ba5fdb2287bbadc1674)这个视频，可以点击左边栏播放按钮，输入视频网址：
-![Media Extended.png](./images/Media Extended.png)
+![Media_Extended.png](./images/Media_Extended.png)
 
 然后，就可以直接在Obsidian里面看视频了：
 ![内嵌视频.png](./images/内嵌视频.png)
@@ -262,10 +262,10 @@ AI学习助手的正常使用需要配置两种模型，<font color="#92d050">�
 
 #### 5.1.1 添加Chat Model
 首先添加对话模型。在Model标签页Chat Model下面，点击Add Custom Model按钮。
-![添加chat model.png](./images/添加chat model.png)
+![添加chat_model.png](./images/添加chat_model.png)
 
 弹出的模型配置窗口如下：
-![Add Custom Chat Model.png](./images/Add Custom Chat Model.png)
+![AddCustomChatModel.png](./images/AddCustomChatModel.png)
 
 配置以硅基流动API为例，请参考：[[#6.2 硅基流动]]
 
@@ -297,7 +297,7 @@ Reasoning是表示添加的模型具有推理能力，即具有文字问答的�
 ![verify.png](./images/verify.png)
 
 验证成功的话，Obsidian右上角会弹出Model verification successful（模型验证成功）字样：
-![verify successful.png](./images/verify successful.png)
+![verify_successful.png](./images/verify_successful.png)
 
 然后再点击Add Model添加模型：
 ![add model.png](./images/add model.png)
@@ -306,7 +306,7 @@ Reasoning是表示添加的模型具有推理能力，即具有文字问答的�
 ![勾选enable和cors.png](./images/勾选enable和cors.png)
 
 添加好了对话模型后，可以配置模型参数，通常保持默认即可。
-![temp etc.png](./images/temp etc.png)
+![temp_etc.png](./images/temp_etc.png)
 
 >[!note]
 ><font color="#92d050">Temperature</font>指的是模型的温度，温度越高，模型创造力越强，缺点是容易瞎编。反之，模型越严谨，缺点是发散性较弱。
@@ -328,7 +328,7 @@ Reasoning是表示添加的模型具有推理能力，即具有文字问答的�
 ![选择BAAI.png](./images/选择BAAI.png)
 
 之后的步骤基本一致，不在赘述。由于Embedding Model不具备Reasoning等功能，因此选项框只需要勾选<font color="#92d050">Enable CORS</font>：
-![嵌入模型enable CORS.png](./images/嵌入模型enable CORS.png)
+![嵌入模型enable_CORS.png](./images/嵌入模型enable_CORS.png)
 
 添加后的Embedding Model如下图所示。
 ![嵌入模型列表勾选cors.png](./images/嵌入模型列表勾选cors.png)
@@ -339,10 +339,10 @@ Reasoning是表示添加的模型具有推理能力，即具有文字问答的�
 ![选择你的模型.png](./images/选择你的模型.png)
 
 选择你的Embedding Model后，一个重建检索库的弹窗会弹出来，我们点击<font color="#92d050">Continue</font>：
-![rebuild index.png](./images/rebuild index.png)
+![rebuild_index.png](./images/rebuild_index.png)
 
 检索建立成功，Obsidian右上角会弹出Index completed successfully!
-![rebuild index_suc.png](./images/rebuild index_suc.png)
+![rebuild_index_suc.png](./images/rebuild_index_suc.png)
 
 <font color="#92d050">这个步骤相当于Embedding Model把学习助手仓库里的所有文本（PDF除外）贴了标签，后续就可以通过标签和提问的相似度向对话模型提供相关文本。</font>
 
@@ -451,7 +451,7 @@ command栏是一些右键快捷AI指令:
 ![Copilot_command_AddCommand.png](./images/Copilot_command_AddCommand.png)
 
 粘贴刚才复制的指令格式，改成自己的指令并保持：
-![新增copilot command.png](./images/新增copilot command.png)
+![新增copilot_command.png](./images/新增copilot_command.png)
 
 试一下新指令：
 ![copilot_试一下新command.png](./images/copilot_试一下新command.png)
