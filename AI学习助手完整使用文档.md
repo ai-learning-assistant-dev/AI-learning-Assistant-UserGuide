@@ -537,355 +537,354 @@ flowchart TD
 ><font color="#92d050">​​生成答案​​</font>
 >将匹配的文本块作为上下文，输入大模型生成最终回答。
 
-# 第二部分：新增功能 (V1.1)
+# 第二部分：新增功能(V1.2)
 
-## 1.1 版本功能特性
+## **零、版本情况**
+### **1.2 版本功能特性**
+- **AI学习助手界面** - 提供直观的操作界面，一键管理Obsidian软件和语音功能。
+- **Obsidian插件语音功能** - 在Obsidian Copilot插件中新增语音功能，包括录音转文字、音视频转文字，以及文字转语音，支持自动播放和更自然的对话方式，模拟真实交流。
+- **更多AI学习角色** - 提供多样化的AI学习助手角色，并支持问题延伸功能，AI会主动提出相关学习问题，帮助用户深入学习。
+- **语音功能优化** -** 为CUDA用户升级至更高品质的TTS模型，生成音色更生动自然，支持音色克隆功能。语音服务可根据用户设备性能自动适配最优模型，确保流畅体验。
 
+### **1.1 版本功能特性**
 - 通过自定义标签设计，实现定制不同的AI人设，满足对话需求
-
 - 支持引用不同文档内的多段文本内容与AI进行交互
+- 支持对本地音视频进行语音识别，并可在windows上通过CPU/CUDA上一键部署
+- 支持对选中文本进行文字转语音，并可在windows上通过CPU/CUDA上一键部署
 
-- 支持对本地音视频进行语音识别，并可在windows上通过CPU/CUDA上一键部署，也可以在apple silicon芯片的mac上通过cpu进行一键部署
 
-- 支持对选中文本进行文字转语音，并可在windows上通过CPU/CUDA上一键部署，也可以在apple silicon芯片的mac上通过cpu进行一键部署
+## **一、启动器使用**
+### **1.1 启动器解压与启动**
+首先，下载学习助手软件包“AI-Learning-Assistant-V1.2.0-Launcher-win32-x64-1.0.0.zip”，并解压到指定文件夹(解压路径尽量选择英文路径)，点击其中的学习助手图标的程序启动，如下图：
 
-## 1 AI插件增强功能
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.001.png)
 
-### 1.1 自定义人设
+点击后会启动学习助手界面，目前主要有两块内容，分别是：
 
+1. 学习助手阅读器：用于对obsidian阅读器进行管理，支持多仓库管理、开发插件本地一键更新，后续版本会在其中逐步支持学习资料管理、AI人设管理等内容(暂未支持，敬请期待~)
+1. 学习助手工具箱：用于集成管理与使用各种AI工具，目前支持文字转语音(TTS)与语音转文字(ASR)一键部署，后续版本会在其中逐步支持AI跑团、本地语言模型部署、AI绘图等工具(暂未支持，敬请期待~)
+
+### **1.2 学习助手阅读器使用说明**
+在学习助手阅读器界面，如果未安装obsidian软件，请点击“安装阅读器”按钮进行安装，会跳出obsidian软件安装程序，请按照指示完成安装。
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.002.png)
+
+安装好obsidian软件后，则需要点击“定位阅读器”，点击后会跳出一个选择文件框，用于选择obsidian软件运行程序。
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.003.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.004.png)
+
+
+
+我们可以通过已下方法得知obsidian软件运行程序的具体地址，通过windows搜索栏按照序号顺序输入与点击内容，最后复制此软件的绝对路径，粘贴至定位阅读器的选择框中，最后点击“打开”确认：
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.005.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.006.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.007.png)
+
+确定好obsidian位置后，点击需要使用的obsidian仓库的“插件情况”进行插件更新，目前支持对二次开发插件进行更新：
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.008.png)
+
+安装好指定插件后，请在obsidian的插件管理页面启动这两个插件：
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.009.png)
+
+若你先前安装了原版的aloud/copilot插件，由于插件兼容冲突的原因，需要首先关闭原先插件，再启动新版插件，才能正常使用。
+
+相关新版obsidian插件新功能的使用说明请跳转至“第二部分”。
+
+### **1.3 学习助手工具箱使用说明**
+工具箱主要提供各种AI增强服务功能，当前版本支持语音转文字、文字转语音功能，后续功能会逐步添加其他功能。
+#### **1.3.1 服务初始化**
+首先使用工具箱相关功能，需要在Windows上启动WSL功能,请点击按钮进行启动：
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.010.png)
+
+启动后需要安装一些程序，安装好后会提示需要重新启动电脑：
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.011.png)
+
+重新启动好后，接下来开始正常开始使用相关功能了。
+
+
+#### **1.3.2 语音服务使用**
+对于TTS/ASR功能，我们提供了"AI-Learning-Assistant-V1.2.0-Voice-v1.1.tar"安装包，其点击其中一个功能的安装按钮，选中指定tar包进行导入与安装，初始安装可能需要耗费比较长的时间(10分钟左右)，请耐心等待：
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.012.png)
+
+
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.013.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.014.png)
+
+
+
+##### **1.3.2.1 语音转文字**
+**基础使用：**
+
+安装完毕后，请点击“启动”，可以在设置页面查看启动情况，当看到最终提示9000端口的相关信息时，可知服务启动成功。接着，我们可在“2.3”部分配置obsidian插件相关参数(注意，请使用本地地址的 URL进行配置，例如 '[http://127.0.0.1:9000](http://127.0.0.1:9000/)'。如果使用全局地址 '[http://0.0.0.0:9000](http://0.0.0.0:9000/)'，由于相关网络参数未正确配置，可能无法正常使用服务。)来使用ASR服务。
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.015.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.016.png)
+
+注意：
+
+1. 请在不需要使用时即时关闭相关服务，以免内存/显存占用
+
+##### **1.3.2.2 文字转语音**
+**基础使用：**
+
+安装完毕后，请点击“启动”，可以在设置页面查看启动情况，当看到最终提示8000端口的相关信息时，可知服务启动成功。接着，我们可在“2.2”部分配置obsidian插件相关参数(注意，请使用本地地址的 URL进行配置，例如 '[http://127.0.0.1:8000](http://127.0.0.1:9000/)'。如果使用全局地址 '[http://0.0.0.0:8000](http://0.0.0.0:9000/)'，由于相关网络参数未正确配置，可能无法正常使用服务。)来使用TTS服务。
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.017.png)
+
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.018.png)
+
+
+
+另外要注意的是，在设置中我们可以强制指定N卡或cpu的运行条件，这样的区别是强制N卡使用index-tts模型，而强制cpu使用kokoro模型。而在默认不强制情况下，程序会根据当前设备的硬件状况运行指定模型(若无N卡以及cuda驱动，则运行kokoro模型；若有则默认运行index-tts模型)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.019.png)
+
+
+
+这里展示下当前可用的文本转语音模型总体情况：
+
+|模型|运行速度|语音质量|
+| - | - | - |
+|kokoro(A卡或cpu默认运行)|cpu/gpu可用，运行速度快|中规中矩，发挥稳定，语气清晰感偏弱|
+|index-tts(N卡默认运行)|gpu速度较快，cpu非常慢，不建议在只有cpu上使用该模型|语音质量较高，发声自然，带一定的情绪，且支持音色克隆|
+
+
+**音色克隆：**
+
+以下介绍音色克隆的方法：点击“添加语音”，选择一段比较干净无噪声的说话人音频文件(7s~20s即可)，确认后会在语音配置管理界面出现一个新增卡片：
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.020.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.021.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.022.png)
+
+
+接下来我们需要编辑新增音色的相关配置，尤其是“语音对应文本”即需要填写上传音频对应的文本内容，当各种参数配置好后，我们点击"保存语音配置"：
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.023.png)
+
+配置好后，若文本转语音服务正在运行，则需要停止服务重新启动，新增音色才能正常使用。
+
+注意：
+
+1. 本团队提供此项功能主要是为了方便学习的目的，请不要滥用或不正当使用他人音色
+1. 请在不需要使用时即时关闭相关服务，以免显存占用
+
+
+## **二、obsidian阅读器新特性使用**
+本部分主要介绍1.2 版本与1.1 版本新增功能的教程说明，更基础的obsidian插件说明请参考其他教程视频与学习手册。
+
+### **2.1 copilot 基础功能使用**
+为方便使用，我们在2.1.1与2.1.2中收录了相关1.1的开发功能。
+#### **2.1.1 多文本内容引用**
+通过"copliot + commander"插件的组合，我们可以将命令面板的"Copilot:Add paragraphs to reference"命令加入到文件右键命令当中：
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.024.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.025.png)
+
+
+通过上述方法，我们就可以实现将选中文本添加到copliot的对话框内，并且支持索引语法进行简洁引用，不直接粘贴文本，方便进一步的提示词书写与整理：
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.026.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.027.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.028.png)
+
+我们可以对多个文档的指定文段进行引用：
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.029.png)
+
+
+
+
+#### **2.1.2 人设自定义**
 打开obsidian 的设置界面，找到copliot插件：
 
-![descript](./images/image1.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.030.png)
 
 目前copilot 插件设置页面新增"捏人设"功能，通过"人设调试版"可以组合出各种人设：
 
-![descript](./images/image2.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.031.png)
 
 我们可以在选中区域内新增标签，并填写相应的标签内容(注意如果新加的标签与已有的标签重名，则无法成功添加)：
 
-![descript](./images/image2.1.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.032.png)
 
 对于已有标签，它会匹配多个标签条目，用于存储这个标签下的各种设定，比如说关于”角色“这个标签，我们可以设置“哲学家”、“科技史研究者”、“欧洲历史研究者”等多个标签条目，但每次一个标签只能选中一个条目。我们可以修改当前选中的标签条目的内容，或者新增/删除对应的标签条目，如下所示：
 
-![descript](./images/image2.3.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.033.png)
 
-![descript](./images/image2.2.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.034.png)
 
 关于调整不同标签之间的位置，可以通过最左侧的上下箭头实现：
 
-![descript](./images/image3.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.035.png)
 
 当我们设置好了人设的各种所需要的标签，我们可以在红框处输入名称比如"科技史研究者"，接着点击"添加人设"，即可添加相应人设：
 
-![descript](./images/image4.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.036.png)
 
 添加好后，可以发现所定义人设出现在了"人设列表"中，且还可以在编辑面板中调整我们人设设定：
 
-![descript](./images/image5.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.037.png)
 
 最后说明下如何使用，我们可以点击指定人设的左侧按钮，即可切换到想要的人设配置上，后续AI助手就会以这个身份来与我们对话。
 
 当然，你也可以在AI助手的对话框上方切换人设，如下图：
 
-![descript](./images/image6.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.038.png)
 
 接下来我们就可以根据我们自己设定的人设与AI更加"亲密"地互动了！
 
-![descript](./images/image7.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.039.png)
 
-### 1.2 多文本内容引用
+#### **2.1.3 自动衍生问题**
+copilot的1.2版本主要新增自动衍生问题、自动语音播放两个功能，下面主要说明自动衍生问题的原理和使用方法，自动语音播放功能说明请看2.2章节。
+##### **2.1.3.1 自动衍生问题原理说明**
+自动衍生问题主要采取提示词控制大模型输出特定格式的方式实现，也就是说使用特定提示词，使得大模型按照提示词的要求进行输出。如目前插件中默认的提示词，截图如下：
 
-通过"copliot + commander"插件的组合，我们可以将命令面板的"Copilot:Add paragraphs to reference"命令加入到文件右键命令当中：
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.040.png)
 
-![descript](./images/image8.png)
+在对话界面中启动自动衍生问题开关后，向大模型提问"你有什么功能"，返回的内容最后就会带上衍生的问题。
 
-![descript](./images/image9.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.041.png)
 
-通过上述方法，我们就可以实现将选中文本添加到copliot的对话框内，并且支持索引语法进行简洁引用，不直接粘贴文本，方便进一步的提示词书写与整理：
+大模型回复截图如下：
 
-![descript](./images/image10.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.042.png)
 
-![descript](./images/image11.png)
+当我们继续向大模型提问"请回答问题2”，copilot本身会将对话的上下文一起发送给大模型，那么就会回答之前衍生出来的问题，从而实现自动问题的衍生与答复。
 
-![descript](./images/image12.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.043.png)
+##### **2.1.3.2 自动衍生问题提示词与系统提示词关系的详细说明(可跳过)**
+开启自动衍生问题开关后，就会将相应的提示词拼接到系统提示词上，如果有选择人设或开启口语化功能，会按照"默认系统提示词" + "人设提示词" + "自动衍生问题提示词" + "口语化提示词"的顺序拼接文本，形成系统提示词。如果某项功能没有开启或没有设置，则忽略不进行拼接。
 
-我们可以对多个文档的指定文段进行引用：
+自动衍生问题提示词可以在设置界面中进行修改，如果修改成其它提示词的要求，也是没有可以的。目前的功能本质上只是**将相应的文本拼接起来作为系统提示词发送给大模型**，前端的开关按钮只是用于控制是否将相应的文本拼接在一起。所以自动衍生问题的提示词，包括2.2章节的口语化提示词功能，都是可以修改成自己需要的提示词，同样也可以把相应的提示词写到人设提示词中，只要确保自己配置的提示词会发送给大模型即可。目前自动衍生问题、口语化等功能的提示词是针对特定场景而进行配置的。
 
-![descript](./images/image13.png)
+可以在设置界面中查看copilot默认系统提示词，并可通过开关进行控制。截图如下：
 
-进一步，我们可以将人设功能与多段文本选中功能结合起来一起使用，实现更加专业的AI学习助手！
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.044.png)
 
-![descript](./images/image14.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.045.png)
 
-## 2 语音识别(ASR)使用
+### **2.2 copilot 语音播放服务接入**
+#### **2.2.1 aloud基础配置** 
+在AI学习助手启动器上更新aloud插件到最新版本（更新方式参考启动器使用“1.2”部分），并启动文本转语音服务。
 
-### 2.1 ASR后端服务部署
+接下来要在aloud插件中配置连接本地文本转语音的服务，配置方法如下：进入obsidian 的配置页面，将"Model Provider"切换至"OpenAI Compatible(Advanced)",接下来填写其他参数。本地部署的话"API key"填写任意字符串或者为空都可以，"API URL"一般填写为本地主机的8000端口，也就是填写"[http://localhost:8000](http://localhost:8000/)"（注意,"http://0.0.0.0:8000"可能无法成功访问，请填写"localhost"格式）,“Model"中填写当前已经部署的模型 kokoro或者index-tts模型，填写好后如下图所示:
 
-#### 2.1.1 部署教程
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.046.png)
 
-要想前端插件正常使用语音转文字功能，需要启动服务后端程序，以下是本地部署这一服务的方法。
-
-打开本页面最上方提供的下载链接，点击ASR文件夹，根据不同的硬件情况选择下载不同的ASR后端整合包：
-
-| 整合包名称 | 环境需求 | 特性 |
-|-----------|---------|------|
-| AI-learning-assist-asr-v1.0-cpu.zip | windows10及以上操作系统 | 支持AMD/Nvidia各平台，但仅支持cpu运行，速度相比cuda版本较慢 |
-| AI-learning-assist-asr-v1.0-cuda.zip | windows10及以上操作系统，N卡显存消耗在1G左右 | 支持Nvidia平台，使用显存进行推理，速度较快 |
-| AI-learning-assist-asr-v1.0-mac.zip | apple silicon芯片 macOS操作系统 | 支持mac上cpu运行 |
-
-下载好对应压缩包后，我们进行解压(如果解压时遭遇"路径太长问题"的报错，可以跳转至本文档的"4.1.1"解决问题)，得到以下文件：
-
-![descript](./images/image15.png)
-
-可以看到图的文件夹内有bat脚本用于一键启动语音转文字后端服务，点击 **start.bat** 来启动（对于macOS系统点击 **start.command**）。它会跳出一些运行信息，一开始启动可能需要下载一些模型文件，等待一段时间后它最终会显示出一个地址，如下图：
-
-![descript](./images/image16.png)
-
-这个地址就是我们后续接下来使用obsidian的语音识别插件transcription需要的端口地址了。如果显示出来这部分结果，就说明后台服务正常运行了。本后端目前选用的是sensevoice-small模型。
-
-### 2.2 使用obsidian transcription视频语音转录
-
-注意使用本插件，需要确保ASR后端服务正常部署，[详情请了解](#21-asr后端服务部署)
-
-#### 2.2.1 配置参数
-
-打开obsidian 的设置界面,找到**transcription**插件,按照图示在选项Transcription engine中选择Whisper ASR
-
-![descript](./images/image17.png)
-
-然后开启Enable timestamps选项
-
-Timestamp format选择Auto
-
-Timestamp interval选择off
-
-![descript](./images/image18.png)
-
-正常Whisper ASR URLs 保持默认的9000端口即可
-
-![descript](./images/image19.png)
-
-#### 2.2.2 工具使用
-
-关于transcrition插件的使用，主要有以下几种方法：
-
-1.推荐用法-打开一篇引用了本地视频或音频的笔记，我们通过选中待转录的音视频文件，右键的命令列表中点击“transcribe”，进行语音转文字，等待一段时间后就会得到相应的结果，如下图所示：
-
-![descript](./images/transcription-1.png)
-
-
-2.通过ctrl+p命令面板中的“Transcribe file in view”，我们可以选择一个本篇笔记内引用过的视频或音频去处理，如下图所示：
-
-![descript](./images/image21.png)
-
-3.通过ctrl+p命令面板中的“Add File to Transcription”，可以实现在系统文件中选一个处理，如下图所示：
-
-![descript](./images/image22.png)
-
-4.通过ctrl+p命令面板中的“Transcribe all files in view”，可以处理该篇笔记所有的视频或音频
-
-如果是本地部署，成功添加视频后会看到后台正在打印一些处理过程：
-
-![descript](./images/image24.png)
-
-处理完毕后，会直接在当前笔记下生成转换的文字信息。
-
-#### 2.2.3 效果展示
-
-处理一段选中的音频，会得到类似以下的结果：
-
-![descript](./images/transcibe-2.png)
-
-
-### 2.3 使用obsidian whisper 插件实现录音转文字功能
-
-注意使用本插件，需要确保ASR后端服务正常部署，[详情请了解](#21-asr后端服务部署)
-
-#### 2.3.1 配置参数
-
-打开obsidian 的设置界面,找到*whisper**插件,按照图示开启本地服务，填入本地服务的url为"http://localhost:9000",其他默认即可，如下图所示：
-
-![descript](./images/asr-whisper-1.png)
-
-
-#### 2.3.2 工具使用
-插件配置好后，可通过在文档中右键执行录音转文字功能：
-
-![descript](./images/asr-whisper-2.png)
-
-点击后会产生以下悬浮窗，可以点击"record"进行录音，"pause"暂停录音，"stop"点击后结束录音，自动生成转录的文字:
-
-![descript](./images/asr-whisper-3.png)
-
-
-![descript](./images/asr-whisper-4.png)
-
-
-## 3 文字转语音(TTS)使用
-
-### 3.1 TTS后端服务部署
-
-#### 3.1.1 部署教程
-
-要想前端插件正常使用文字转语音功能，就需要一个提供这样服务的后端程序，以下是本地部署这一服务的方法。
-
-打开本页面最上方提供的下载链接，点击TTS文件夹，根据不同的硬件情况选择下载不同的TTS后端整合包：
-
-| 整合包名称 | 环境需求 | 特性 |
-|-----------|---------|------|
-| AI-learning-assist-tts-v1.0-cpu.zip | windows10及以上操作系统 | 支持AMD/Nvidia各平台，但仅支持cpu运行，速度相比cuda版本较慢 |
-| AI-learning-assist-tts-v1.0-cuda.zip | windows10及以上操作系统，N卡显存消耗在1~2G左右 | 支持Nvidia平台，使用显存进行推理，速度较快 |
-| AI-learning-assist-tts-v1.0-mac.zip | apple silicon芯片的mac | 支持cpu运行，速度相比cuda版本较慢 |
-
-下载好对应压缩包后，我们进行解压(在windows上如果解压时遭遇"路径太长问题"的报错，可以跳转至本文档的"4.1.1"解决问题)，得到以下文件：
-
-![descript](./images/image27.png)
-
-![descript](./images/image28.png)
-
-可以看到第二张图的文件夹内有两个东西，其中"cli"文件夹里是运行服务所需要的各种代码与资源(可以不理解它的作用，但是不要删除里面的东西，会影响服务运行)，另外一个是一键运行命令。我们点击"start_exe.bat",它会跳出一些运行信息，等待一段时间后它最终会显示出一个地址，如下图：
-
-![descript](./images/image29.png)
-
-这个地址就是我们后续接下来使用obsidian aloud插件需要填入的端口地址了。如果显示出来这部分结果，就说明后台服务正常运行了。
-
-#### 3.1.2 TTS模型列表
-
-目前，我们的文本转语音服务提供了"kokoro"与"f5-tts"模型的使用，以下是这两个模型的主要信息：
-
-| 模型 | 运行速度 | 语音质量 |
-|------|---------|---------|
-| kokoro | cpu/gpu可用，运行速度快 | 中规中矩，发挥稳定，语气清晰感偏弱 |
-| f5-tts | gpu速度较快，cpu非常慢，不建议在cpu上使用该模型 | 语音质量较高，发声自然，带一定的情绪，但是对数字是英式读法，在中文语境中偏违和 |
-
-### 3.2 obsidian aloud插件使用
-
-#### 3.2.1 本地使用方法
-
-1.1 版本的学习助手里面有aloud插件，通过该插件，我们可以实现将任意选中文本语音化的功能。
-
-首先进入obsidian 的配置页面，将"Model Provider"切换至"OpenAI Compatible(Advanced)",接下来填写其他参数。本地部署的话"API key"填写任意字符串或者为空都可以，"API URL"一般填写为本地主机的8000端口，也就是填写"[http://localhost:8000](http://localhost:8000/)"（注意,"http://0.0.0.0:8000"可能无法成功访问，请填写"localhost"格式）,"Model"中填写当前已经部署的模型 kokoro或者f5-tts 模型，填写好后如下图所示:
-
-![descript](./images/image30.png)
-
-点击"Voice"行最右侧的刷新按钮，即可看到当前可用的音色：
-
-![descript](./images/image31.png)
-
-切换到指定音色后，我们就可以点击"Test Voice"按钮，进行音频播放了。
+如果之前已配置aloud插件，只要保证更新aloud插件版本后能正常在笔记中使用文本转语音即可。
 
 接下来，我们可以在obsidian中的任意文档内右键选中指定文本进行语音播放，如下图：
 
-![descript](./images/image32.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.047.png)
+
 
 我们也可以右键选中指定文本，导出这些文本的音频文件，进行播放：
 
-![descript](./images/image33.png)
-
-这里可以试听导出的音频文本：
-
--179e7ee3a.mp3
-
-该工具也支持对选中的超长文本的语音连续播放，它会将前面已经处理好的段落播放出来，不用等待后面部分文字的处理。
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.048.png)
 
 另外，对于音频存储功能，aloud支持对于过去播放过的文字进行缓存，以及设置多长时间缓存自动清除；对于导出的音频文件，aloud也支持指定存放音频文件的地址。如下图：
 
-![descript](./images/image34.png)
-
-#### 3.2.2 在线TTS API 服务使用方法
-
-本插件同时支持对于在线api服务的接入，如openai tts 与硅基流动的tts服务，下面以[硅基流动的tts服务](https://docs.siliconflow.cn/cn/api-reference/audio/create-speech)作为参考，以下是配置展示图：
-
-![descript](./images/image35.png)
-
-注意，在线TTS平均token费用是一般比较贵的，不大推荐巨量使用(以下是硅基流动的"cosyvoice"的费用，仅供参考)：
-
-![descript](./images/image36.png)
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.049.png)
 
 
-## 4 使用反馈
+#### **2.2.2 语音播放功能说明**
+copilot插件目前支持语音播放相关功能（注意使用前需要配置好aloud插件以及文本转语音服务），如下图：
 
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.050.png)
+
+开启自动语音播放开关，当大模型返回结果后就会自动播放语音。
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.051.png)
+
+我们也可以点击AI消息框下的语音播放按钮进行播放。
+
+#### **2.2.3 口语化提示词说明**
+设置口语化提示词的目的是通过控制提示词要求大模型输出的文本尽量短，如果返回的文本过长，自动语音播放就会等到结果完全返回后才进行播放，时间较长。这种长文本情况似乎就没有必要进行语音播放，所以添加口语化提示词的方式控制大模型输出。当然不启动口语化开关也是可以进行自动语音播放的。
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.052.png)
+
+也可以通过设置界面修改口语化提示词，使大模型返回的结果符合自己的设置，类似自动衍生问题的提示词。
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.053.png)
+
+### **2.3 copilot 语音识别功能使用**
+#### **2.3.1 ASR基础配置**
+1,打开Copilot插件设置页面,点到ASR
+
+2,看图红色框框可以切换openai服务或者本地服务
+
+3,默认使用本地ASR服务,端口是9000,如果自己想改动,请保持前后端的端口相同。另外请务必开启encode与VAD,这是确保本地服务正常运作的条件
+
+4,如果切换使用openai服务,请在API Setting中填写API Key
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.054.png)
+
+5,File Saving Settings服务于语音识别功能,设置Recordings folder后录音会存入指定位置
+
+6,设置Transcriptions folder后,(在没有指定笔记时)语音识别生成的笔记会存入指定位置
+
+8,General Settings暂时是没有用处的,不必配置
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.055.png)
+
+#### **2.3.2 录制语音后转文字**
+1,如图点击Open recording controls或者在笔记右键后选择语音输入文字
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.056.png)
+
+2,点击后会弹出录音器,Record为开启录音,Pause暂停,Stop结束录音并转文字
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.057.png)
+
+
+3,**在copilot 对话框中识别语音识别**：在chat对话框使用语音输入,点击voice按钮,再点Record然后说话
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.058.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.059.png)
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.060.png)
+
+
+
+#### **2.3.3 音视频转文字**
+1,使用ctrl+p打开命令行, 手打transcri,以下命令都可以对应实现功能
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.061.png)
+
+2,或者选择任意音频或者视频右键,在菜单中选择🎧Transcribe 稍等推理完成,就会根据语音生成文字
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.062.png)
+
+3,注意：在插件配置中如图开启时间标注(Enable timestamps)暂时无法使用，不需要开启
+
+![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.063.png)
+
+
+
+## **三、使用反馈**
 在使用软件时遇到任何问题，欢迎加入QQ群807831970进行交流和咨询！
-
-### 4.1 已知问题
-
-#### 4.1.1 Windows上解压时报"路径太长"的报错
-
-解压上面提供的整合包时产生了"路径太长的报错"，如下图：
-
-![descript](./images/image37.png)
-
-可以使用本次提供的解压工具"7z2409-x64.exe"，首先安装该工具，然后启动它的界面化工具箱，如下图：
-
-![descript](./images/image38.png)
-
-在文件地址栏(红框标示处)输入到待解压的文件夹的绝对路径，再按一下"enter"键，即跳转到相应文件夹处，如下图：
-
-![descript](./images/image39.png)
-
-点击要解压的压缩包，进行解压，等待一段时间后，解压成功了：
-
-![descript](./images/image40.png)
-
-![descript](./images/image41.png)
-
-#### 4.1.2 Windows上如何查看隐藏文件
-
-如果某个文件内存在隐藏文件/文件夹，但无法查看到，可通过点击文件管理器的三个点，再点击"选项"，进入"查看"页面，选择显示隐藏文件与文件夹，最后点击确定保存设置：
-
-![descript](./images/image42.png)
-
-![descript](./images/image43.png)
-
-最后可以看到我们已经可以看到隐藏文件了：
-
-![descript](./images/image44.png)
-
-#### 4.1.3 windows上初次使用tts整合包产生网络问题
-
-首次使用TTS整合包可能会产生类似如下的报错：
-
-![descript](./images/problem_4_1_3_1.png)
-
-
-这是由于模型的部分配置文件还需要从hugging face上拉取，但由于没有访问外网的流量，所以产生网络报错问题。
-
-我们需要用记事本打开启动文件"start_exe.bat"，添加国内镜像的环境变量“https://hf-mirror.com”，这样可以解决问题：
-
-```bash
-@echo off
-set HF_ENDPOINT=https://hf-mirror.com
-start .\cli\cli.exe run --model-names=kokoro,f5-tts
-```
-注意，上面给出的内容是bat文件需要的全部命令，请替换原有的bat命令，而不是与原有bat命令进行合并。或者你也可以删除原有bat文件，重新将上面给出的命令写入到"start_exe.bat"中
-
-保存结果后重新点击该文件启动TTS语音服务，就可以实现配置文件的下载以及正常启动服务程序了。
-
-
-#### 4.1.4 MAC上使用整合包产生安全性警告
-
-解压后，直接运行整合包可能会遭遇以下报错：
-
-![descript](./images/5.1.3.png)
-
-这是由于macOS 内置了 Gatekeeper 安全机制，当运行来自非 App Store 或未签名的文件（如整合包中的 `start.command` 或 `cli`）时，会触发安全性警告，导致无法直接运行。这通常是因为文件带有 `com.apple.quarantine` 属性，系统将其视为潜在风险。
-
-
-要解决这个问题，需要通过移除文件的 Quarantine 属性，可以让 macOS 信任这些文件，从而绕过安全性警告。操作需在终端执行，并确保文件来源可信。以下是解决过程：
-1. 打开终端。
-2. 导航到解压得到的整合包的根目录，例如 `/Users/username/Documents/dist`：
-   ```bash
-   cd /path/to/dist
-   ```
-3. 移除目录下所有文件的 Quarantine 标记：
-   ```bash
-   sudo xattr -r -d com.apple.quarantine .
-   ```
-4. 输入管理员密码后，点击 `start.command` 再次尝试运行。
-
-完成后，应能正常运行整合包。
-
-
 
 
 
