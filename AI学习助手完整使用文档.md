@@ -38,7 +38,7 @@ AI学习助手的主要功能是基于一款笔记软件，Obsidian。AI学习�
 安装好Obsidian后，接下来我们要配置好Obsidian仓库。首先，新建一个空的文件夹作为，文件夹名不限（示例为Obsidian vaults），该文件夹主要用于放置AI学习助手相关文件，建议不要放置在C盘。
 ![创建Obsidian_vaults文件夹.png](./images/创建Obsidian_vaults文件夹.png)
 
-接下来，回到下载好的AI学习助手文件夹，蒋该文件夹整个文件夹拷贝到刚才创建的空的文件夹（示例为Obsidian vaults）中。
+接下来，回到下载好的AI学习助手文件夹，将该文件夹整个文件夹拷贝到刚才创建的空的文件夹（示例为Obsidian vaults）中。
 ![复制AI学习助手文件夹.png](./images/复制ai学习助手文件夹.png)
 ![把AI学习助手文件夹粘贴.png](./images/把ai学习助手文件夹粘贴.png)
 
