@@ -1,6 +1,3 @@
-# AI学习助手完整使用文档
-
-## 目录
 
 ```table-of-contents
 ```
@@ -537,299 +534,999 @@ flowchart TD
 ><font color="#92d050">​​生成答案​​</font>
 >将匹配的文本块作为上下文，输入大模型生成最终回答。
 
-# 第二部分：新增功能(V1.2)
+# 第二部分：新增功能(V1.3)
 
-## **零、版本情况**
-### **1.2 版本功能特性**
-- **AI学习助手界面** - 提供直观的操作界面，一键管理Obsidian软件和语音功能。
+## 零、版本情况
+
+### 1.3 版本功能特性
+
+- **一键部署AI模型**：支持LLM与Embedding模型，简化部署流程，助力小白用户快速上手热门模型。
+
+- **新增工作区功能**：支持创建定制化人设与RAG检索，增强知识检索能力，搭配学习助手社区提供的学习资源，实现一键下载并开展学习。
+
+- **媒体资源下载**：新增Media Download功能，支持视频与字幕资源下载，丰富学习素材获取方式。
+
+- **Copilot体验优化**：优化历史对话加载、RAG检索链路及索引建立流程，提升交互流畅度和效率。
+
+- **PDF转Markdown工具**：提供一键将PDF转换为Markdown功能，结合工作区功能，方便用户制作个性化学习资料。
+
+- **学习助手启动器优化**：新增容器存储位置迁移功能和大模型存储位置变更功能，提升启动器灵活性与用户体验。
+
+- **长文本实时播放优化**：优化index-tts推理，支持长文本实时播放（在V100上测试效果显著），语音输出更流畅自然。
+
+**Bug修复**：
+
+- 修复启动器阅读器多开Obsidian仓库时打开错误的问题。
+
+- 解决启动器工具箱语音功能安装时Podman初始化失败的bug。
+
+- 修复aloud插件将表情文字等特殊符号误读为"fei"的问题，确保语音输出内容准确无误。
+
+### 1.2 版本功能特性
+
+- **AI学习助手界面** -
+  提供直观的操作界面，一键管理Obsidian软件和语音功能。
+
 - **Obsidian插件语音功能** - 在Obsidian Copilot插件中新增语音功能，包括录音转文字、音视频转文字，以及文字转语音，支持自动播放和更自然的对话方式，模拟真实交流。
-- **更多AI学习角色** - 提供多样化的AI学习助手角色，并支持问题延伸功能，AI会主动提出相关学习问题，帮助用户深入学习。
-- **语音功能优化** -** 为CUDA用户升级至更高品质的TTS模型，生成音色更生动自然，支持音色克隆功能。语音服务可根据用户设备性能自动适配最优模型，确保流畅体验。
 
-### **1.1 版本功能特性**
+- **更多AI学习角色** -
+  提供多样化的AI学习助手角色，并支持问题延伸功能，AI会主动提出相关学习问题，帮助用户深入学习。
+
+- **语音功能优化** -
+  为CUDA用户升级至更高品质的TTS模型，生成音色更生动自然，支持音色克隆功能。语音服务可根据用户设备性能自动适配最优模型，确保流畅体验。
+
+### 1.1 版本功能特性
+
 - 通过自定义标签设计，实现定制不同的AI人设，满足对话需求
+
 - 支持引用不同文档内的多段文本内容与AI进行交互
+
 - 支持对本地音视频进行语音识别，并可在windows上通过CPU/CUDA上一键部署
+
 - 支持对选中文本进行文字转语音，并可在windows上通过CPU/CUDA上一键部署
 
+## 一、启动器使用
 
-## **一、启动器使用**
-### **1.1 启动器解压与启动**
-首先，下载学习助手软件包“AI-Learning-Assistant-V1.2.0-Launcher-win32-x64-1.0.0.zip”，并解压到指定文件夹(解压路径尽量选择英文路径)，点击其中的学习助手图标的程序启动，如下图：
+### 1.1 启动器解压与启动
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.001.png)
+首先，下载学习助手软件包"AI-Learning-Assistant-Launcher-win32-x64-1.3.0.zip"，并解压到指定文件夹(解压路径尽量选择英文路径)，点击其中的学习助手图标的程序启动，如下图：
+
+![descript](images/media/1.3-version/image1.png)
 
 点击后会启动学习助手界面，目前主要有两块内容，分别是：
 
-1. 学习助手阅读器：用于对obsidian阅读器进行管理，支持多仓库管理、开发插件本地一键更新，后续版本会在其中逐步支持学习资料管理、AI人设管理等内容(暂未支持，敬请期待~)
-1. 学习助手工具箱：用于集成管理与使用各种AI工具，目前支持文字转语音(TTS)与语音转文字(ASR)一键部署，后续版本会在其中逐步支持AI跑团、本地语言模型部署、AI绘图等工具(暂未支持，敬请期待~)
+1.  学习助手阅读器：用于对obsidian阅读器进行管理，支持多仓库管理、学习助手插件一键更新、工作区创建与学习资料下载
 
-### **1.2 学习助手阅读器使用说明**
-在学习助手阅读器界面，如果未安装obsidian软件，请点击“安装阅读器”按钮进行安装，会跳出obsidian软件安装程序，请按照指示完成安装。
+2.  学习助手工具箱：用于集成管理与使用各种AI工具，目前支持文字转语音(TTS)、语音转文字(ASR)、PDF2MarkDown一键部署，后续版本会在其中逐步支持AI跑团、AI绘图等工具(暂未支持，敬请期待\~)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.002.png)
+3.  AI大模型：用于使用lm
+    studio本地部署相关AI模型服务，提供推荐模型(qwen3、gemma3等)的一键下载与运行，包括大语言模型、Embedding等
 
-安装好obsidian软件后，则需要点击“定位阅读器”，点击后会跳出一个选择文件框，用于选择obsidian软件运行程序。
+### 1.2 学习助手阅读器使用说明
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.003.png)
+#### 1.2.1 安装与定位obsidian阅读器
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.004.png)
+在学习助手阅读器界面，如果未安装obsidian软件，请点击"安装阅读器"按钮进行安装，会跳出obsidian软件安装程序，请按照指示完成安装。
 
+![descript](images/media/1.3-version/image2.png)
 
+安装好obsidian软件后，则需要点击"定位阅读器"，点击后会跳出一个选择文件框，用于选择obsidian软件运行程序。
 
-我们可以通过已下方法得知obsidian软件运行程序的具体地址，通过windows搜索栏按照序号顺序输入与点击内容，最后复制此软件的绝对路径，粘贴至定位阅读器的选择框中，最后点击“打开”确认：
+![descript](images/media/1.3-version/image3.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.005.png)
+![descript](images/media/1.3-version/image4.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.006.png)
+我们可以通过已下方法得知obsidian软件运行程序的具体地址，通过windows搜索栏按照序号顺序输入与点击内容，最后复制此软件的绝对路径，粘贴至定位阅读器的选择框中，最后点击"打开"确认：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.007.png)
+![descript](images/media/1.3-version/image5.png)
 
-确定好obsidian位置后，点击需要使用的obsidian仓库的“插件情况”进行插件更新，目前支持对二次开发插件进行更新：
+![descript](images/media/1.3-version/image6.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.008.png)
+![descript](images/media/1.3-version/image7.png)
+
+#### 1.2.2 插件下载与更新
+
+确定好obsidian位置后，点击需要使用的obsidian仓库的"插件情况"进行插件更新，目前支持对二次开发插件进行更新：
+
+![descript](images/media/1.3-version/image8.png)
 
 安装好指定插件后，请在obsidian的插件管理页面启动这两个插件：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.009.png)
+![descript](images/media/1.3-version/image9.png)
 
-若你先前安装了原版的aloud/copilot插件，由于插件兼容冲突的原因，需要首先关闭原先插件，再启动新版插件，才能正常使用。
 
-相关新版obsidian插件新功能的使用说明请跳转至“第二部分”。
+若你先前安装了原版的aloud/copilot/media extended插件，由于插件兼容冲突的原因，需要首先关闭原先插件，再启动新版插件，才能正常使用。
 
-### **1.3 学习助手工具箱使用说明**
+相关新版obsidian插件新功能的使用说明请跳转至"第二部分"进行查看。
+
+#### 1.2.3 工作区的管理与说明(v1.3新功能)
+
+##### 1.2.3.1 工作区的功能介绍
+
+工作区主要以文件夹作为单位进行区分，如果在文件夹下，存在**data.md配置文件**，软件就会识别成工作区。配置文件中存在版本、人设、RAG排除路径等配置参数，用于提供给Copilot插件读取，从而实现在Copilot插件中使用文件夹下自定义的人设等参数，而不需在Copilot插件中进行配置，方便后续更新共享。
+
+##### 1.2.3.2 工作区的管理
+
+工作区主要包括创建工作区、删除工作区、修改配置的功能。
+
+- 查看仓库下的工作区列表，点击"工作区管理"按钮进入仓库中查看。
+
+![descript](images/media/1.3-version/image10.png)
+
+![descript](images/media/1.3-version/image11.png)
+
+- 创建工作区
+
+创建工作区，相当于在文件夹下新建data.md配置文件，使用默认配置。
+
+![descript](images/media/1.3-version/image12.png)
+
+在弹出的选择文件夹窗口中可以新建文件夹、也可以选择仓库下已有的文件夹作为工作区。工作区的文件夹选择只能选择当前仓库下的文件夹。
+
+![descript](images/media/1.3-version/image13.png)
+
+创建工作区后，可在obsidian中看到创建了data.md配置文件。
+
+![descript](images/media/1.3-version/image14.png)
+
+![descript](images/media/1.3-version/image15.png)
+
+- 删除工作区
+
+删除工作区，相当于删除文件夹下的data.md配置文件，点击"配置工作区"按钮，再点击"删除配置"按钮即可。
+
+![descript](images/media/1.3-version/image16.png)
+
+![descript](images/media/1.3-version/image17.png)
+
+![descript](images/media/1.3-version/image18.png)
+
+- 修改配置
+
+点击"配置工作区"按钮，可修改人设名称、人设描述、添加人设、删除人设，修改版本、添加排除RAG搜索路径（用于vault QA模式），修改完后，点击"保存配置"按钮即可。
+
+![descript](images/media/1.3-version/image19.png)
+
+![descript](images/media/1.3-version/image20.png)
+
+![descript](images/media/1.3-version/image21.png)
+
+##### 1.2.3.3 Copilot关联工作区人设
+
+在obsidian的Copilot插件中选择vault QA模式，选择对应的工作区，再选择工作区下配置好的人设。在对话的时候，就会使用对应的人设作为提示词发给大模型。
+
+![descript](images/media/1.3-version/image22.png)
+
+![descript](images/media/1.3-version/image23.png)
+
+##### 1.2.3.4 Copilot 工作区的Rag建立索引
+
+使用中，若发现工作区内的部分学习资料未成功建立Rag索引，或文件修改后需重新建立索引，可以使用先切换到\"chat\"模式，再切换到\"vault QA\"模式(使用vault QA模式建立Rag索引需要配置嵌入模型,请确定是否已经成功配置embedding模型)并切换至相应工作区进行建立索引的操作。
+
+![descript](images/media/1.3-version/image24.png)
+
+配置重建索引模式，在QA设置界面，选择ON WORKSPACE SWITCH模式后，就会在工作区切换时判断该工作区下的文件是否需要进行索引重建。
+
+![descript](images/media/1.3-version/image25.png)
+
+若以上操作仍然无法实现建立索引，可进行以下操作强制建立索引的操作。
+
+点击左侧对话框按钮，打开AI对话框，如下图：
+
+![descript](images/media/1.3-version/image26.png)
+
+根据上图指示点击对话框上面一行右侧的三个点，点击弹出菜单的Force Reindex Vault按钮来进行重建索引，这一步骤是为了保证与AI对话时AI能准确回答我们的答案，阅读器会弹出一个提示。如下图：
+
+![descript](images/media/1.3-version/image27.png)
+
+点击Continue，然后会需要大约3分钟来重建索引，右上角黑色消息框会显示重建进度。如下图：
+
+![descript](images/media/1.3-version/image28.png)
+
+请你耐心等待，不要进行其他任何操作，右上角有黑色消息框，显示Indexing completed successfully!，说明重建完成。如下图：
+
+![descript](images/media/1.3-version/image29.png)
+
+#### 1.2.4 学习资料导入(v1.3新功能)
+
+为了方便用户快速获取与学习各门类知识，因此本次版本更新特别提供了学习资料导入功能。尤其是远程导入功能，它支持下载**AI学习助手编写组**提供的学习资料包进行学习。
+
+##### 1.2.4.1 学习资料导入说明
+
+首先说明下学习资料有两种导入方式：
+
+1.  本地导入：将本地计算机已有的学习资料包(主要是markdown文本)进行导入
+
+2.  远程导入：拉取远程学习资料仓库的学习资料进行导入
+
+而导入的学习资料内容有两种形式：
+
+1.  若一级目录下存在data.md文件，则视为**工作区(工作区的相关功能说明请参考"1.2.3"，它主要是提供了版本号、人设、rag检索条件等信息)**
+
+2.  若一级目录下存在data.md文件，则视为**纯学习资料**
+
+系统会**自动判断**选择的导入资料的类型。若导入的学习资料为工作区，会直接导入到当前仓库中；若导入的内容为纯学习资料，则将要求用户选择已有工作区进行导入。
+
+**特别注意！！！在本地导入工作区时，一定要选择data.md对应的上一级文件夹，否则系统不会将其识别为工作区**
+
+##### 1.2.4.2 学习资料导入步骤
+
+我们可以对收集得到的学习资料进行本地导入或远程导入。
+
+打开工作区管理
+
+![descript](images/media/1.3-version/image30.png)
+
+点击"导入工作区"
+
+![descript](images/media/1.3-version/image31.png)
+
+以下是导入的两种情况：
+
+**1.本地导入：**
+
+点击本地导入，若导入的是非工作区的学习资料，它将会要求选择当前已有的工作区进行导入：
+
+![descript](images/media/1.3-version/image32.png)
+
+点击本地导入，若导入的是为工作区格式的学习资料，它会直接作为一个工作区导入到当前的obsidian仓库中
+
+**2.远程导入：**
+
+点击远程导入：
+
+![descript](images/media/1.3-version/image33.png)
+
+远程仓库地址保持默认即可，点击"获取学习包"后，出现以下可选学习包：
+
+![descript](images/media/1.3-version/image34.png)
+
+选中并下载标识了"独立工作区"的学习资料，会直接导入将其导入到obsidian的根目录中；
+
+若勾选的下载项中包含非工作区的学习资料，需要进一步选中当前仓库的已有工作区：
+
+![descript](images/media/1.3-version/image35.png)
+
+选择完成后点击下载选中项，即可开始下载。
+
+出现以下信息则表示下载成功：
+
+![descript](images/media/1.3-version/image36.png)
+
+### 1.3 学习助手工具箱使用说明
+
 工具箱主要提供各种AI增强服务功能，当前版本支持语音转文字、文字转语音功能，后续功能会逐步添加其他功能。
-#### **1.3.1 服务初始化**
+
+#### 1.3.1 服务初始化
+
 首先使用工具箱相关功能，需要在Windows上启动WSL功能,请点击按钮进行启动：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.010.png)
+![descript](images/media/1.3-version/image37.png)
 
 启动后需要安装一些程序，安装好后会提示需要重新启动电脑：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.011.png)
+![descript](images/media/1.3-version/image38.png)
 
 重新启动好后，接下来开始正常开始使用相关功能了。
 
+#### 1.3.2 设置安装位置(v1.3新功能)
 
-#### **1.3.2 语音服务使用**
-对于TTS/ASR功能，我们提供了"AI-Learning-Assistant-V1.2.0-Voice-v1.1.tar"安装包，其点击其中一个功能的安装按钮，选中指定tar包进行导入与安装，初始安装可能需要耗费比较长的时间(10分钟左右)，请耐心等待：
+C盘空间不足的朋友，可以通过这个操作减少对你C盘空间的占用。
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.012.png)
+首先打开AI学习助手启动器然后打开工具箱功能，如下图：
 
+![descript](images/media/1.3-version/image39.png)
 
+点击修改安装位置，后看到提示框，如下图：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.013.png)
+![descript](images/media/1.3-version/image40.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.014.png)
+点击提示框的修改按钮后弹出系统文件夹选择框，请选中未来安装工具箱的文件夹，如下图：
 
+![descript](images/media/1.3-version/image41.png)
 
+点击选择文件夹，然后等待启动器在你选择的文件夹中创建虚拟机磁盘，创建成功后如下图：
 
-##### **1.3.2.1 语音转文字**
+![descript](images/media/1.3-version/image42.png)
+
+在你选择的文件中会新增一个名为ext4.vhdx的文件，如下图，它是用来存储你的所有工具箱程序的容器，请不要删除它，手动删除它会软件出问题，你可以点击下图中的删除所有服务和缓存来删除它。不要在这个文件夹中存放任何其他文件，因为当你点击工具箱的"删除所有数据和缓存时\"按钮式，这个文件夹会被整个删掉，会导致你存放在这个文件夹的其他文件也被删掉。
+
+![descript](images/media/1.3-version/image43.png)
+
+#### 1.3.3 语音服务使用
+
+对于TTS/ASR功能，我们提供了\"ai-voice-tts-asr-1.1.tar\"安装包，其点击其中一个功能的安装按钮，选中指定tar包进行导入与安装，初始安装可能需要耗费比较长的时间(10分钟左右)，请耐心等待：
+
+![descript](images/media/1.3-version/image44.png)
+
+![descript](images/media/1.3-version/image45.png)
+
+![descript](images/media/1.3-version/image46.png)
+
+##### 1.3.3.1 语音转文字
+
 **基础使用：**
 
-安装完毕后，请点击“启动”，可以在设置页面查看启动情况，当看到最终提示9000端口的相关信息时，可知服务启动成功。接着，我们可在“2.3”部分配置obsidian插件相关参数(注意，请使用本地地址的 URL进行配置，例如 '[http://127.0.0.1:9000](http://127.0.0.1:9000/)'。如果使用全局地址 '[http://0.0.0.0:9000](http://0.0.0.0:9000/)'，由于相关网络参数未正确配置，可能无法正常使用服务。)来使用ASR服务。
+安装完毕后，请点击"启动"，可以在设置页面查看启动情况，当看到最终提示9000端口的相关信息时，可知服务启动成功。接着，我们可在"2.5
+Copilot
+语音识别功能使用"部分配置obsidian插件相关参数(注意，请使用本地地址的
+URL进行配置，例如
+\'[http://127.0.0.1:9000](http://127.0.0.1:9000/)\'。如果使用全局地址
+\'[http://0.0.0.0:9000](http://0.0.0.0:9000/)\'，由于相关网络参数未正确配置，可能无法正常使用服务。)来使用ASR服务。
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.015.png)
+![descript](images/media/1.3-version/image47.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.016.png)
+![descript](images/media/1.3-version/image48.png)
 
-注意：
+**注意：请在不需要使用时即时关闭相关服务，以免内存/显存占用**
 
-1. 请在不需要使用时即时关闭相关服务，以免内存/显存占用
+##### 1.3.3.2 文字转语音
 
-##### **1.3.2.2 文字转语音**
 **基础使用：**
 
-安装完毕后，请点击“启动”，可以在设置页面查看启动情况，当看到最终提示8000端口的相关信息时，可知服务启动成功。接着，我们可在“2.2”部分配置obsidian插件相关参数(注意，请使用本地地址的 URL进行配置，例如 '[http://127.0.0.1:8000](http://127.0.0.1:9000/)'。如果使用全局地址 '[http://0.0.0.0:8000](http://0.0.0.0:9000/)'，由于相关网络参数未正确配置，可能无法正常使用服务。)来使用TTS服务。
+安装完毕后，请点击"启动"，可以在设置页面查看启动情况，当看到最终提示8000端口的相关信息时，可知服务启动成功。接着，我们可在"2.4 copilot 语音播放服务接入"部分配置obsidian插件相关参数(注意，请使用本地地址的URL进行配置，例如
+\'[http://127.0.0.1:8000](http://127.0.0.1:9000/)\'。如果使用全局地址
+\'[http://0.0.0.0:8000](http://0.0.0.0:9000/)\'，由于相关网络参数未正确配置，可能无法正常使用服务。)来使用TTS服务。
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.017.png)
+![descript](images/media/1.3-version/image49.png)
 
-
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.018.png)
-
-
+![descript](images/media/1.3-version/image50.png)
 
 另外要注意的是，在设置中我们可以强制指定N卡或cpu的运行条件，这样的区别是强制N卡使用index-tts模型，而强制cpu使用kokoro模型。而在默认不强制情况下，程序会根据当前设备的硬件状况运行指定模型(若无N卡以及cuda驱动，则运行kokoro模型；若有则默认运行index-tts模型)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.019.png)
-
-
+![descript](images/media/1.3-version/image51.png)
 
 这里展示下当前可用的文本转语音模型总体情况：
 
-|模型|运行速度|语音质量|
-| - | - | - |
-|kokoro(A卡或cpu默认运行)|cpu/gpu可用，运行速度快|中规中矩，发挥稳定，语气清晰感偏弱|
-|index-tts(N卡默认运行)|gpu速度较快，cpu非常慢，不建议在只有cpu上使用该模型|语音质量较高，发声自然，带一定的情绪，且支持音色克隆|
-
+| 模型                   | 运行速度                                      | 语音质量                                             |
+|------------------------|---------------------------------------------|----------------------------------------------------|
+| kokoro (A卡或CPU默认运行) | CPU/GPU可用，运行速度快                       | 中规中矩，发挥稳定，语气清晰感偏弱                   |
+| index-tts (N卡默认运行)   | GPU速度较快，CPU非常慢，不建议在只有CPU上使用该模型 | 语音质量较高，发声自然，带一定的情绪，且支持音色克隆 |
 
 **音色克隆：**
 
-以下介绍音色克隆的方法：点击“添加语音”，选择一段比较干净无噪声的说话人音频文件(7s~20s即可)，确认后会在语音配置管理界面出现一个新增卡片：
+以下介绍音色克隆的方法：点击"添加语音"，选择一段比较干净无噪声的说话人音频文件(7s\~20s即可)，确认后会在语音配置管理界面出现一个新增卡片：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.020.png)
+![descript](images/media/1.3-version/image52.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.021.png)
+![descript](images/media/1.3-version/image53.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.022.png)
+![descript](images/media/1.3-version/image54.png)
 
+接下来我们需要编辑新增音色的相关配置，尤其是"语音对应文本"即需要填写上传音频对应的文本内容，当各种参数配置好后，我们点击\"保存语音配置\"：
 
-接下来我们需要编辑新增音色的相关配置，尤其是“语音对应文本”即需要填写上传音频对应的文本内容，当各种参数配置好后，我们点击"保存语音配置"：
-
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.023.png)
+![descript](images/media/1.3-version/image55.png)
 
 配置好后，若文本转语音服务正在运行，则需要停止服务重新启动，新增音色才能正常使用。
 
 注意：
 
-1. 本团队提供此项功能主要是为了方便学习的目的，请不要滥用或不正当使用他人音色
-1. 请在不需要使用时即时关闭相关服务，以免显存占用
+1.  本团队提供此项功能主要是**为了方便学习的目的，请不要滥用或不正当使用他人音色**
 
+2.  请在不需要使用时即时关闭相关服务，以免显存占用
 
-## **二、obsidian阅读器新特性使用**
-本部分主要介绍1.2 版本与1.1 版本新增功能的教程说明，更基础的obsidian插件说明请参考其他教程视频与学习手册。
+#### 1.3.4 PDF转Markdown(v1.3新功能)
 
-### **2.1 copilot 基础功能使用**
-为方便使用，我们在2.1.1与2.1.2中收录了相关1.1的开发功能。
-#### **2.1.1 多文本内容引用**
-通过"copliot + commander"插件的组合，我们可以将命令面板的"Copilot:Add paragraphs to reference"命令加入到文件右键命令当中：
+**安装：**
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.024.png)
+![descript](images/media/1.3-version/image56.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.025.png)
+与语音转文字的安装过程类似，点击安装按钮，选择mineru-pipeline.tar进行安装，等待一段时间后安装成功。
 
+**使用：**
+
+安装完成后，页面将转化为如下状态：
+
+![descript](images/media/1.3-version/image57.png)
+
+点击【启动】按钮，会在WSL中加载该服务。在处理完PDF后，如果你暂时没有处理PDF任务的需求，建议点击【停止】按钮来停止该服务的加载，该服务可能在后台占用极大的内存。
+
+![descript](images/media/1.3-version/image58.png)
+
+点击【转换PDF】按钮，将进入下一级子页面，在其中可以进行PDF转换：
+
+![descript](images/media/1.3-version/image59.png)
+
+该页面的下方是WSL内部服务的日志输出，你可以通过观察该日志判断单一PDF的转换进度。点击【选择PDF文件】，可以在文件浏览器中选择自己希望添加的PDF文件，按住ctrl点击可以多选：
+
+![descript](images/media/1.3-version/image60.png)
+
+选择后该页面将转化成如下状态。如果有误选，可以点击【删除】按钮进行删除；如有漏选，可以继续点击【选择PDF文件】进行补选。
+
+![descript](images/media/1.3-version/image61.png)
+
+点击开始转换，当前页面将转化为如下状态，此时不能操作任务列表，但可以退出该页面（注意，不能退出启动器！），让任务后台执行，同时也可以观测下方日志来判断单一文件执行进度：
+
+![descript](images/media/1.3-version/image62.png)
+
+某一文件执行完成后会从任务列表中移除：
+
+![descript](images/media/1.3-version/image63.png)
+
+所有任务均完成后，该页面将转化为如下状态，此时可以进行下一轮操作：
+
+![descript](images/media/1.3-version/image64.png)
+
+当成功转化一个PDF文件后，可以在该文件的同级目录下找到同名文件夹，其中存放了产物：
+
+![descript](images/media/1.3-version/image65.png)
+
+产物的格式如下：
+
+**配置：**
+
+默认情况下，你无需点击【设置】按钮进行配置。并且，该按钮中的配置也只在一次程序运行时生效，下一次打开启动器会恢复到默认设置，需要重新进行配置。
+
+![descript](images/media/1.3-version/image66.png)
+
+你可以在该页面设置如下内容，注意，该配置内容将对任务列表中的所有任务均生效：
+
+![descript](images/media/1.3-version/image67.png)
+
+**已知问题：**
+
+1.  该能力可能在面对某些特殊PDF时，在初始化阶段卡住很久，但是往往后续还可以继续执行，可以观察如下截图的时间戳：
+
+![descript](images/media/1.3-version/image68.png)
+
+1.  转换得到的markdown格式可能无法一比一还原PDF的阅读体验。若追求高质量的markdown格式排版，可以手工进行校对，可以参考人工校对文档：
+
+<https://docs.qq.com/aio/p/scg8z0wezvdo563?p=Hn5BrWOMvIh2j8NoBAZqHn>
+
+1.  如果某些pdf转换失败，通常会显示\"socket hang
+    up\"，这可能是由于PDF转换依赖的mineru在处理超多页数的影印版PDF时的策略过于激进，导致电脑性能消耗过大。此时如果希望继续转换该pdf，可以尝试使用切分pdf的能力，如下所示：
+
+![descript](images/media/1.3-version/image69.png)
+
+该能力会自动合并所有的md文件和images文件夹
+
+### 1.4 大模型一键部署(v1.3新功能)
+
+#### 1.4.1 安装LM Studio
+
+首先打开AI学习助手启动器，打开后如下图所示：
+
+![descript](images/media/1.3-version/image70.png)
+
+点击AI大模型，看到如下画面：
+
+![descript](images/media/1.3-version/image71.png)
+
+点击"开启本地大模型前请点击我安装LMStudio"来安装LMStudio，点击后再稍等几秒会弹出LM
+Studio的安装界面，如下图：
+
+![descript](images/media/1.3-version/image72.png)
+
+在上图界面点击下一步，点击后如下图：
+
+![descript](images/media/1.3-version/image73.png)
+
+在上图界面点击安装后，会有安装进度显示，安装完成后如下图：
+
+![descript](images/media/1.3-version/image74.png)
+
+在上图中确保红框中的勾勾被勾选，然后点击完成，然后会看到下面这张图：
+
+![descript](images/media/1.3-version/image75.png)
+
+切换到AI学习助手启动器，会看到AI学习助手右上角显示已安装LMStudio，如下图：
+
+![descript](images/media/1.3-version/image76.png)
+
+到这里，你已经完成了安装LM Studio。
+
+#### 1.4.2 选择模型存储位置
+
+这个功能是给C盘空间不足的用户使用的，如果你的C盘有50GB以上空间，可以跳过这一节。
+
+点击修改模型存储位置，点击后如下图：
+
+![descript](images/media/1.3-version/image77.png)
+
+按照弹窗中的截图在LM Studio软件上进行操作，我们先切换到LM
+Studio软件，如下图：
+
+![descript](images/media/1.3-version/image78.png)
+
+点击上图红色箭头所指图标，点击后如下图所示：
+
+![descript](images/media/1.3-version/image79.png)
+
+点击上图红圈圈出的三个点的按钮，点击后如下图：
+
+![descript](images/media/1.3-version/image80.png)
+
+点击弹出的菜单中的Change按钮，点击后会弹出文件位置选择框，如下图：
+
+![descript](images/media/1.3-version/image81.png)
+
+选择一个有50GB以上空间的文件位置，然后点击选择文件夹，点击后如下图：
+
+![descript](images/media/1.3-version/image82.png)
+
+到这里你已经完成了修改模型存储位置的操作。
+
+#### 1.4.3 安装语言模型
+
+让我们先安装一个小模型开始，其他模型的安装过程是一样的。
+
+切换到AI学习助手启动器的AI大模型页面，如下图：
+
+![descript](images/media/1.3-version/image83.png)
+
+点击qwen/qwen3-4b那一行后面的安装按钮，点击后如下图：
+
+![descript](images/media/1.3-version/image84.png)
+
+上图这个画面中下方会实时显示下载的速度和进度，显示的含义如下：
+
+图形进度条 下载百分比 \| 已下载大小 / 总大小 \| 下载速度 \|
+预估剩余下载时间
+
+AI大语言模型都很大，请耐心等待。下载完成后如下图所示：
+
+![descript](images/media/1.3-version/image85.png)
+
+点击上图画面的加载按钮可以把模型加载到内存或显存中，如果模型比较大，加载会需要大概1分钟时间。当加载完成后如下图所示：
+
+![descript](images/media/1.3-version/image86.png)
+
+到这里你已经完成了语言模型的下载和加载，如果你下载了多个模型，已经加载了一个语言模型，但是想要加载其他模型，请先点击已经加载的模型的后面的停止按钮按钮来停止模型，然后点击你想要加载的模型后面的加载按钮。这样能保证AI模型以最快的速度运行。
+
+#### 1.4.4 设置Obsidian的Copilot插件
+
+先切换到AI学习助手启动器的AI大模型功能，加载一个语言模型和一个词嵌入模型，如下图：
+
+![descript](images/media/1.3-version/image87.png)
+
+上图中划红线的部分是接下来要填写到Copilot中的参数，左边的的是模型名称（Model Names），右边的是地址（Base URL），记住他们，在下一个步骤中要使用，切换到Obsidian的Copilot的设置页的Model页签，点击Chat Models 栏目下的Add Custom Model按钮，在弹出的对话框中，将Provider选项选择LM Studio，填写Model Names和Base URL，如下图：
+
+![descript](images/media/1.3-version/image88.png)
+
+这些参数需要根据你的AI学习助手上显示的内容填写，可能和我的不一样。点击Verify后，看到右上角的黑色信息框显示Model verification successful!，说明参数填写正确，如下图：
+
+![descript](images/media/1.3-version/image89.png)
+
+点击Add Model，点击后如下图
+
+![descript](images/media/1.3-version/image90.png)
+
+到这里你已经完成了Copilot调用本地大模型的设置。记得要在下图这个红色圈圈位置选择你刚刚设置的大模型：
+
+![descript](images/media/1.3-version/image91.png)
+
+#### 1.4.5 设置词嵌入模型（Embedding Models）
+
+如果你想让Copilot的RAG功能使用本地模型，那么你可以在Obsidian的模型设置里添加本地模型，你需要点击Embedding Models栏目下的Add Custom Model按钮，弹出Add Custom Embedding Model窗口，在窗口里填写词嵌入模型的参数，然后点击Add Model如下图：
+
+![descript](images/media/1.3-version/image92.png)
+
+还需要在Copilot设置页面的Basic页签的Embedding Model中选中上一步添加的模型。如下图：
+
+![descript](images/media/1.3-version/image93.png)
+
+到此你已经完成了Copilot的词嵌入模型设置。
+
+#### 1.4.6 删除本地大模型
+
+如果你的磁盘空间已经不够了，可以按照下面的步骤删除你用不到的本地大模型，腾出磁盘空间。
+
+首先切换到LM Studio软件的下图页面：
+
+![descript](images/media/1.3-version/image94.png)
+
+Model列找到你要删除的模型，点击上图右侧红圈标出的按钮，点击后如下图所示：
+
+![descript](images/media/1.3-version/image95.png)
+
+点击刚才弹出的菜单中的删除按钮，点击后如下图：
+
+![descript](images/media/1.3-version/image96.png)
+
+点击删除，点击后如下图：
+
+![descript](images/media/1.3-version/image97.png)
+
+当上图页面列表中找不到你删除的模型后，说明模型已经删除成功。
+
+## 二、obsidian阅读器使用
+
+本部分主要介绍1.1版本以来围绕新增功能的教程说明，更详细与基础的obsidian使用说明请参考其他教程视频与学习手册。
+
+### 2.1 copilot 第三方AI服务快速接入(以硅基流动服务为例)
+
+#### 2.1.1 创建API密钥
+
+要使用copilot
+AI功能，我们首先需要自行配置好相关AI模型，这里提供硅基流动模型接入方式作为参考。打开这个链接<https://account.siliconflow.cn/zh/login>，如下图所示：
+
+![descript](images/media/1.3-version/image98.png)
+
+根据这个界面的引导注册你的账号，注册完成后登录。登录后如下图所示：
+
+![descript](images/media/1.3-version/image99.png)
+
+点击左侧API密钥按钮。点击后如下图所示：
+
+![descript](images/media/1.3-version/image100.png)
+
+点击新建API密钥按钮。点击后如下图所示：
+
+![descript](images/media/1.3-version/image101.png)
+
+在弹窗中填写AI学习助手，然后点击新建密钥按钮。点击后如图所示：
+
+![descript](images/media/1.3-version/image102.png)
+
+点击sk-m类似字样的密钥。点击后如下图所示：
+
+![descript](images/media/1.3-version/image103.png)
+
+当你看到如上图所示的已复制字样后，你就成功的复制AI密钥到剪贴板中。在后续步骤会用到这个AI密钥。
+
+#### 2.1.2 将AI密钥填写到学习助手阅读器中
+
+打开阅读器，找到红箭头所指的小齿轮按钮。如下图所示：
+
+![descript](images/media/1.3-version/image104.png)
+
+点击小齿轮按钮，进入到设置页面，设置页左侧向下找到并点击Copilot（AI Learning Assistant）选项，就可以进入到Copilot插件设置界面。如下图所示：
+
+![descript](images/media/1.3-version/image105.png)
+
+点击顶部Model选项卡，右侧会显示Chat Models界面。如下图所示：
+
+![descript](images/media/1.3-version/image106.png)
+
+点击下方Add Custom Model按钮，会弹出Add Custom Chart Model窗口，在窗口中把Reasoning前方的方框勾选上，再按照下方表格给出的参数填写：
+
+  -------------------------------- --------------------------------------
+  输入框名称                       填写内容
+
+  Provider                         Open AI Format
+
+  API Key                          在硅基流动网页上复制的sk开头的AI密钥
+
+  Model Name                       Qwen/Qwen3-235B-A22B-Instruct-2507
+
+  Display Name                     Qwen3-235B
+
+  Base URL                         <https://api.siliconflow.cn/v1>
+  -------------------------------- --------------------------------------
+
+填写后如下图所示：
+
+![descript](images/media/1.3-version/image107.png){width="5.772222222222222in"
+height="4.295977690288714in"}
+
+点击Verify按钮验证我们填写的密钥是否正确，如果正确，右上角会弹出黑色消息框，会有一个消息框内写着Model
+verification successful!。如下图所示：
+
+![descript](images/media/1.3-version/image108.png){width="5.772222222222222in"
+height="4.295977690288714in"}
+
+点击Add
+Model按钮，然后把Qwen3-235B右边的两个方框中左边的框勾选上，右边的框不要勾选。完成后如图所示：
+
+![descript](images/media/1.3-version/image109.png){width="5.772222222222222in"
+height="4.295977690288714in"}
+
+在右侧界面继续向下滚动，找到Embedding Models设置。如下图所示：
+
+![descript](images/media/1.3-version/image110.png){width="5.772222222222222in"
+height="4.509548337707787in"}
+
+点击Add Custom Model按钮，会弹出Add Custom Embedding
+Model窗口，按照下方表格给出的参数填写：
+
+| 输入框名称   | 填写内容                                   |
+|--------------|------------------------------------------|
+| Provider     | Open AI Format                           |
+| API Key      | 在硅基流动网页上复制的sk开头的AI密钥       |
+| Model Name   | BAAI/bge-m3                              |
+| Base URL     | [https://api.siliconflow.cn/v1](https://api.siliconflow.cn/v1) |
+
+填写完成后点击Verify按钮验证我们填写的密钥是否正确，如果正确，右上角会弹出黑色消息框，会有一个消息框内写着Model verification successful!。如下图所示：
+
+![descript](images/media/1.3-version/image111.png)
+
+点击Add Model按钮。看到BAAI/bge-m3显示在界面上。操作完成后如下图所示：
+
+![descript](images/media/1.3-version/image112.png)
+
+将右侧区域滚动到显示顶部内容，在顶部选择Basic选项卡，在Basic选项卡中，把Default
+Chat Model右侧的选项改为Qwen3-235B。如下图所示：
+
+![descript](images/media/1.3-version/image113.png)
+
+把Embedding Model右侧的选项改为BAAI/bge-m3，会弹出Rebuild Index
+提示窗口，如下图所示：
+
+![descript](images/media/1.3-version/image114.png)
+
+点击Continue按钮后，界面右上角会弹出黑色消息框显示Local Copilot index
+Cleared successfully.。
+
+![descript](images/media/1.3-version/image115.png)
+
+点击Copilot Settings窗口右上角的叉，关闭Copilot
+Settings窗口，关闭后如图所示：
+
+![descript](images/media/1.3-version/image116.png)
+
+然后点击上图箭头所指对话框图标，就能看到右侧变为一个对话框界面：
+
+![descript](images/media/1.3-version/image117.png)
+
+点击上图箭头所指的选项，选择Qwen3-235B。到此阅读器的设置工作就完成了。
+
+**此外，你可以以同样的方式接入其他AI模型，也可以在其他的网站(例如，AI模型聚合服务网站\"**<https://www.dmxapi.com/>**\",该网站提供更加丰富的模型)接入，无需完全参考本教程提供的模型，请自行进行探索。**
+
+### 2.2 copilot 基础AI交互体验功能介绍
+
+接下来介绍如何在obsidian中使用**copilot**插件进行AI交互。
+
+#### 2.2.1 使用copilot与AI进行交互
+
+配置AI模型后，我们可以在右边的窗口与AI进行对话：
+
+![descript](images/media/1.3-version/image118.png)
+
+![descript](images/media/1.3-version/image119.png)
+接下来介绍AI对话窗口的各个按钮的功能(序号的文字说明对应相关按钮序号)：
+
+![descript](images/media/1.3-version/image120.png)
+
+1.  复制：将所在对话的文字复制到剪切板中，可在其他位置粘贴
+
+2.  插入/替换笔记内容：将AI回复插入到当前选中的笔记当中。若当前存在选中文本，则会将该文本替换成AI回复的文本
+
+3.  编辑文本：编辑先前与AI问答的文本，编辑好后按enter确定。若文本编辑后存在修改，则会重新让AI生成相应的回复
+
+4.  重新生成回复：点击后重新根据提问回答信息
+
+5.  删除：点击后会删除选中对话框
+
+6.  语音播放（可选）：点击后会调用aloud插件进行语音播放。前提是aloud插件已安装且已正确配置与部署语音转文本服务。本次教程非必要使用该功能
+
+接下来介绍下方对话窗口的相关功能按钮(序号的文字说明对应相关按钮序号)：
+
+![descript](images/media/1.3-version/image121.png)
+
+1.  新建会话：新开一个干净的对话窗口用于与AI进行交互。注意若未在copilot配置界面启动自动保存会话，点击后原有AI会话信息会被清除
+
+2.  保存当前会话为笔记：点击后，会将当前与AI对话的内容保存到笔记当中，默认位置在"copilot-conversations"文件夹中。可通过copilot配置进行修改
+
+3.  载入历史对话：点击后，可以选中先前保存的AI对话笔记，将其重新载入copilot的AI对话窗口当中
+
+4.  回复口语化（可选）：开启后，AI回复会根据人设设定(关于人设，将会在2.2中讲到)进行相应风格的口语化。本功能在本次培训中非必要使用。
+
+其他更加详细的copilot 配置请参考其他提供的obsidian教程。
+
+#### 2.2.2 多文本内容引用
+
+通过\"copliot + commander\"插件的组合，我们可以将命令面板的\"Copilot:Add paragraphs to reference\"命令加入到文件右键命令当中：
+
+![descript](images/media/1.3-version/image122.png)
+
+![descript](images/media/1.3-version/image123.png)
 
 通过上述方法，我们就可以实现将选中文本添加到copliot的对话框内，并且支持索引语法进行简洁引用，不直接粘贴文本，方便进一步的提示词书写与整理：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.026.png)
+![descript](images/media/1.3-version/image124.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.027.png)
+![descript](images/media/1.3-version/image125.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.028.png)
+![descript](images/media/1.3-version/image126.png)
 
 我们可以对多个文档的指定文段进行引用：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.029.png)
+![descript](images/media/1.3-version/image127.png)
 
+#### 2.2.3 人设自定义
 
-
-
-#### **2.1.2 人设自定义**
 打开obsidian 的设置界面，找到copliot插件：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.030.png)
+![descript](images/media/1.3-version/image128.png)
 
-目前copilot 插件设置页面新增"捏人设"功能，通过"人设调试版"可以组合出各种人设：
+目前copilot
+插件设置页面新增\"捏人设\"功能，通过\"人设调试版\"可以组合出各种人设：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.031.png)
+![descript](images/media/1.3-version/image129.png)
 
 我们可以在选中区域内新增标签，并填写相应的标签内容(注意如果新加的标签与已有的标签重名，则无法成功添加)：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.032.png)
+![descript](images/media/1.3-version/image130.png)
 
-对于已有标签，它会匹配多个标签条目，用于存储这个标签下的各种设定，比如说关于”角色“这个标签，我们可以设置“哲学家”、“科技史研究者”、“欧洲历史研究者”等多个标签条目，但每次一个标签只能选中一个条目。我们可以修改当前选中的标签条目的内容，或者新增/删除对应的标签条目，如下所示：
+对于已有标签，它会匹配多个标签条目，用于存储这个标签下的各种设定，比如说关于"角色"这个标签，我们可以设置"哲学家"、"科技史研究者"、"欧洲历史研究者"等多个标签条目，但每次一个标签只能选中一个条目。我们可以修改当前选中的标签条目的内容，或者新增/删除对应的标签条目，如下所示：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.033.png)
+![descript](images/media/1.3-version/image131.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.034.png)
+![descript](images/media/1.3-version/image132.png)
 
 关于调整不同标签之间的位置，可以通过最左侧的上下箭头实现：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.035.png)
+![descript](images/media/1.3-version/image133.png)
 
-当我们设置好了人设的各种所需要的标签，我们可以在红框处输入名称比如"科技史研究者"，接着点击"添加人设"，即可添加相应人设：
+当我们设置好了人设的各种所需要的标签，我们可以在红框处输入名称比如\"科技史研究者\"，接着点击\"添加人设\"，即可添加相应人设：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.036.png)
+![descript](images/media/1.3-version/image134.png)
 
-添加好后，可以发现所定义人设出现在了"人设列表"中，且还可以在编辑面板中调整我们人设设定：
+添加好后，可以发现所定义人设出现在了\"人设列表\"中，且还可以在编辑面板中调整我们人设设定：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.037.png)
+![descript](images/media/1.3-version/image135.png)
 
 最后说明下如何使用，我们可以点击指定人设的左侧按钮，即可切换到想要的人设配置上，后续AI助手就会以这个身份来与我们对话。
 
 当然，你也可以在AI助手的对话框上方切换人设，如下图：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.038.png)
+![descript](images/media/1.3-version/image136.png)
 
-接下来我们就可以根据我们自己设定的人设与AI更加"亲密"地互动了！
+接下来我们就可以根据我们自己设定的人设与AI更加\"亲密\"地互动了！
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.039.png)
+![descript](images/media/1.3-version/image137.png)
 
-#### **2.1.3 自动衍生问题**
-copilot的1.2版本主要新增自动衍生问题、自动语音播放两个功能，下面主要说明自动衍生问题的原理和使用方法，自动语音播放功能说明请看2.2章节。
-##### **2.1.3.1 自动衍生问题原理说明**
+#### 2.2.4 自动衍生问题
+
+copilot的1.2版本主要新增自动衍生问题、自动语音播放两个功能，下面主要说明自动衍生问题的原理和使用方法，自动语音播放功能说明请看2.3章节。
+
+##### 2.2.4.1 自动衍生问题原理说明
+
 自动衍生问题主要采取提示词控制大模型输出特定格式的方式实现，也就是说使用特定提示词，使得大模型按照提示词的要求进行输出。如目前插件中默认的提示词，截图如下：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.040.png)
+![descript](images/media/1.3-version/image138.png)
 
-在对话界面中启动自动衍生问题开关后，向大模型提问"你有什么功能"，返回的内容最后就会带上衍生的问题。
+在对话界面中启动自动衍生问题开关后，向大模型提问\"你有什么功能\"，返回的内容最后就会带上衍生的问题。
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.041.png)
+![descript](images/media/1.3-version/image139.png)
 
 大模型回复截图如下：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.042.png)
+![descript](images/media/1.3-version/image140.png)
 
-当我们继续向大模型提问"请回答问题2”，copilot本身会将对话的上下文一起发送给大模型，那么就会回答之前衍生出来的问题，从而实现自动问题的衍生与答复。
+当我们继续向大模型提问\"请回答问题2"，copilot本身会将对话的上下文一起发送给大模型，那么就会回答之前衍生出来的问题，从而实现自动问题的衍生与答复。
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.043.png)
-##### **2.1.3.2 自动衍生问题提示词与系统提示词关系的详细说明(可跳过)**
-开启自动衍生问题开关后，就会将相应的提示词拼接到系统提示词上，如果有选择人设或开启口语化功能，会按照"默认系统提示词" + "人设提示词" + "自动衍生问题提示词" + "口语化提示词"的顺序拼接文本，形成系统提示词。如果某项功能没有开启或没有设置，则忽略不进行拼接。
+![descript](images/media/1.3-version/image141.png)
+
+##### 2.2.4.2 自动衍生问题提示词与系统提示词关系的详细说明(可跳过)
+
+开启自动衍生问题开关后，就会将相应的提示词拼接到系统提示词上，如果有选择人设或开启口语化功能，会按照\"默认系统提示词\" +
+\"人设提示词\" + \"自动衍生问题提示词\" +
+\"口语化提示词\"的顺序拼接文本，形成系统提示词。如果某项功能没有开启或没有设置，则忽略不进行拼接。
 
 自动衍生问题提示词可以在设置界面中进行修改，如果修改成其它提示词的要求，也是没有可以的。目前的功能本质上只是**将相应的文本拼接起来作为系统提示词发送给大模型**，前端的开关按钮只是用于控制是否将相应的文本拼接在一起。所以自动衍生问题的提示词，包括2.2章节的口语化提示词功能，都是可以修改成自己需要的提示词，同样也可以把相应的提示词写到人设提示词中，只要确保自己配置的提示词会发送给大模型即可。目前自动衍生问题、口语化等功能的提示词是针对特定场景而进行配置的。
 
 可以在设置界面中查看copilot默认系统提示词，并可通过开关进行控制。截图如下：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.044.png)
+![descript](images/media/1.3-version/image142.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.045.png)
+![descript](images/media/1.3-version/image143.png)
 
-### **2.2 copilot 语音播放服务接入**
-#### **2.2.1 aloud基础配置** 
-在AI学习助手启动器上更新aloud插件到最新版本（更新方式参考启动器使用“1.2”部分），并启动文本转语音服务。
+### 2.3 copilot 工作区使用(以"使用手册"工作区为例)
 
-接下来要在aloud插件中配置连接本地文本转语音的服务，配置方法如下：进入obsidian 的配置页面，将"Model Provider"切换至"OpenAI Compatible(Advanced)",接下来填写其他参数。本地部署的话"API key"填写任意字符串或者为空都可以，"API URL"一般填写为本地主机的8000端口，也就是填写"[http://localhost:8000](http://localhost:8000/)"（注意,"http://0.0.0.0:8000"可能无法成功访问，请填写"localhost"格式）,“Model"中填写当前已经部署的模型 kokoro或者index-tts模型，填写好后如下图所示:
+接下来介绍如何使用新版copilot的工作区功能，我们可以使用它进行人设切换以及Rag检索，关于工作区的管理(包括创建、删除等操作)相关说明请参考"1.2.3
+工作区的管理与说明"。
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.046.png)
+首先我们点击右下角的对话模式，切换为"vault"模式，即工作区模式，接下来我们切换到"使用手册"工作区，并且切换人设为"AI学习助手使用说明小助手"：
 
+![descript](images/media/1.3-version/image144.png)
+
+![descript](images/media/1.3-version/image145.png)
+
+![descript](images/media/1.3-version/image146.png)
+
+当切换成该模式后，我们就可以对该工作区的教程文档进行Rag检索了，比如我们可以提问如何接入硅基流动的API服务，提问将会得到以下类似结果，该结果来源于本地"使用手册"工作区的相关信息：
+
+![descript](images/media/1.3-version/image147.png)
+
+可以看到这里的Rag检索正常返回接入硅基流动的api的方式了。
+
+接下来简要介绍下Rag检索的原理以及注意事项：
+
+1.  RAG检索原理说明
+
+RAG（**Retrieval-Augmented
+Generation**）检索是AI学习助手的核心功能之一，其工作原理如下：
+
+当你在工作区模式下提问时，系统会自动执行以下流程：
+
+- 首先将你的查询通过Embedding模型转换为向量表示
+
+- 然后在当前工作区的文档库中，通过embedding模型的相似度匹配算法，计算查询向量与所有文档片段向量之间的距离
+
+- 系统会选取语义最接近的前n个文档片段（默认为3个，可以copilot设置中修改）
+
+- 这些相关片段会被作为上下文信息\"喂给\"大语言模型
+
+- 大模型基于这些上下文信息生成更加准确、有针对性的回答
+
+这种机制确保了AI的回答不仅基于其预训练知识，还能结合你个人知识库中的具体内容，大大提高了回答的相关性和实用性。
+
+1.  检索技巧
+
+为了获得最佳的RAG检索效果，请遵循以下实用技巧：
+
+- 提问技巧
+
+  - **使用完整语句**：避免过于简短的提问，如\"怎么用？\"，应改为\"在Obsidian中如何创建双向链接？\"
+
+  - **包含关键词**：在问题中明确包含你想查询的核心概念，如\"请解释RAG检索在AI学习助手中的工作原理\"
+
+  - **指定范围**：当有多个相关主题时，可指定范围，如\"在工作区管理部分，如何切换不同的人设？\"
+
+- 文档组织建议
+
+  - **合理分段**：保持笔记内容段落清晰，每段聚焦一个主题，便于系统准确匹配
+
+  - **使用标题**：为笔记添加明确的标题和子标题，帮助系统理解内容结构
+
+  - **添加标签**：为相关笔记添加统一标签，便于系统识别主题关联性
+
+- 检索优化
+
+  - **尝试不同表述**：如果第一次检索结果不理想，可尝试用同义词或不同句式重新提问
+
+  - **查看检索结果**：在回答下方可查看系统实际检索到的文档片段，了解检索效果
+
+  - **调整检索范围**：通过切换工作区，可以控制检索的文档范围，提高相关性
+
+通过以上技巧，你可以显著提高RAG检索的准确性和效率，使AI学习助手更好地服务于你的知识管理工作。
+
+### 2.4 copilot 语音播放服务接入
+
+#### 2.4.1 aloud基础配置 
+
+在AI学习助手启动器上更新aloud插件到最新版本（更新方式参考启动器使用"1.2"部分），并启动文本转语音服务。
+
+接下来要在aloud插件中配置连接本地文本转语音的服务，配置方法如下：进入obsidian
+的配置页面，将\"Model Provider\"切换至\"OpenAI
+Compatible(Advanced)\",接下来填写其他参数。本地部署的话\"API
+key\"填写任意字符串或者为空都可以，\"API
+URL\"一般填写为本地主机的8000端口，也就是填写\"[http://localhost:8000](http://localhost:8000/)\"（注意,\"http://0.0.0.0:8000\"可能无法成功访问，请填写\"localhost\"格式）,"Model\"中填写当前已经部署的模型
+kokoro或者index-tts模型，填写好后如下图所示:
+
+![descript](images/media/1.3-version/image148.png)
 如果之前已配置aloud插件，只要保证更新aloud插件版本后能正常在笔记中使用文本转语音即可。
 
 接下来，我们可以在obsidian中的任意文档内右键选中指定文本进行语音播放，如下图：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.047.png)
-
+![descript](images/media/1.3-version/image149.png)
 
 我们也可以右键选中指定文本，导出这些文本的音频文件，进行播放：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.048.png)
+![descript](images/media/1.3-version/image150.png)
 
 另外，对于音频存储功能，aloud支持对于过去播放过的文字进行缓存，以及设置多长时间缓存自动清除；对于导出的音频文件，aloud也支持指定存放音频文件的地址。如下图：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.049.png)
+![descript](images/media/1.3-version/image151.png)
 
+#### 2.4.2 语音播放功能说明
 
-#### **2.2.2 语音播放功能说明**
 copilot插件目前支持语音播放相关功能（注意使用前需要配置好aloud插件以及文本转语音服务），如下图：
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.050.png)
+![descript](images/media/1.3-version/image152.png)
 
 开启自动语音播放开关，当大模型返回结果后就会自动播放语音。
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.051.png)
+![descript](images/media/1.3-version/image153.png)
 
 我们也可以点击AI消息框下的语音播放按钮进行播放。
 
-#### **2.2.3 口语化提示词说明**
+#### 2.4.3 口语化提示词说明
+
 设置口语化提示词的目的是通过控制提示词要求大模型输出的文本尽量短，如果返回的文本过长，自动语音播放就会等到结果完全返回后才进行播放，时间较长。这种长文本情况似乎就没有必要进行语音播放，所以添加口语化提示词的方式控制大模型输出。当然不启动口语化开关也是可以进行自动语音播放的。
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.052.png)
+![descript](images/media/1.3-version/image154.png)
 
 也可以通过设置界面修改口语化提示词，使大模型返回的结果符合自己的设置，类似自动衍生问题的提示词。
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.053.png)
+![descript](images/media/1.3-version/image155.png)
 
-### **2.3 copilot 语音识别功能使用**
-#### **2.3.1 ASR基础配置**
+
+### 2.5 copilot 语音识别功能使用
+
+#### 2.5.1 ASR基础配置
+
 1,打开Copilot插件设置页面,点到ASR
 
 2,看图红色框框可以切换openai服务或者本地服务
@@ -838,7 +1535,7 @@ copilot插件目前支持语音播放相关功能（注意使用前需要配置�
 
 4,如果切换使用openai服务,请在API Setting中填写API Key
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.054.png)
+![descript](images/media/1.3-version/image156.png)
 
 5,File Saving Settings服务于语音识别功能,设置Recordings folder后录音会存入指定位置
 
@@ -846,46 +1543,205 @@ copilot插件目前支持语音播放相关功能（注意使用前需要配置�
 
 8,General Settings暂时是没有用处的,不必配置
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.055.png)
+![descript](images/media/1.3-version/image157.png)
 
-#### **2.3.2 录制语音后转文字**
+#### 2.5.2 录制语音后转文字
+
 1,如图点击Open recording controls或者在笔记右键后选择语音输入文字
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.056.png)
+![descript](images/media/1.3-version/image158.png)
 
 2,点击后会弹出录音器,Record为开启录音,Pause暂停,Stop结束录音并转文字
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.057.png)
-
+![descript](images/media/1.3-version/image159.png)
 
 3,**在copilot 对话框中识别语音识别**：在chat对话框使用语音输入,点击voice按钮,再点Record然后说话
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.058.png)
+![descript](images/media/1.3-version/image160.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.059.png)
+![descript](images/media/1.3-version/image161.png)
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.060.png)
+![descript](images/media/1.3-version/image162.png)
 
+#### 2.5.3 音视频转文字
 
-
-#### **2.3.3 音视频转文字**
 1,使用ctrl+p打开命令行, 手打transcri,以下命令都可以对应实现功能
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.061.png)
+![descript](images/media/1.3-version/image163.png)
 
-2,或者选择任意音频或者视频右键,在菜单中选择🎧Transcribe 稍等推理完成,就会根据语音生成文字
+2,或者选择任意音频或者视频右键,在菜单中选择🎧Transcribe
+稍等推理完成,就会根据语音生成文字
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.062.png)
+![descript](images/media/1.3-version/image164.png)
 
 3,注意：在插件配置中如图开启时间标注(Enable timestamps)暂时无法使用，不需要开启
 
-![descript](./images/Aspose.Words.3ce157ed-4731-4541-a350-b2980939925f.063.png)
+![descript](images/media/1.3-version/image165.png)
 
+### 2.6 Media Extended 视频与字幕下载(v1.3新功能)
 
+#### 2.6.1 使用说明及配置
 
-## **三、使用反馈**
+本次功能更新仅包含b站视频与字幕下载,使用功能要确保登录自己的账号,其他网站等待待开发.
+
+1,登录方式:如图在Media Extended插件配置页面点击右上角按钮Open broswer
+
+![descript](images/media/1.3-version/image166.png)
+
+2,选择bilibili
+
+![descript](images/media/1.3-version/image167.png)
+
+3,鼠标移到登录字样上,再在出现的浮窗中点击立即登录
+
+![descript](images/media/1.3-version/image168.png)
+
+4,请选用任意登录方式登录,登录成功后配置完成,可以关闭此页面了
+
+![descript](images/media/1.3-version/image169.png)
+
+#### 2.6.2 视频下载使用方式
+
+1,有以下几种方式在obsidian中打开b站视频页面(笔记内点击链接跳转至视频页面、左边命令栏找到"open media"输入b站地址跳转至视频页面)
+
+![descript](images/media/1.3-version/image170.png)
+
+![descript](images/media/1.3-version/image171.png)
+
+![descript](images/media/1.3-version/image172.png)
+
+2,使用b站视频链接打开视频页面后,如图选择视频页面**右上角三个点**，选择Download video,会出现all \*\*.mp4 \*\*.m4a选项,分别会下载(画面与音频),画面,音频
+
+![descript](images/media/1.3-version/image173.png)
+
+3,如果点击all,后如下图会分别下载画面与音频,存储位置为用户默认的附件存储位置
+
+![descript](images/media/1.3-version/image174.png)
+
+#### 2.6.3 字幕下载使用方式
+
+1,使用b站视频链接打开视频页面后,如图选择视频页面右上角三个点
+
+2,选择Open transcript,会出现一个字幕选项
+
+![descript](images/media/1.3-version/image175.png)
+
+3,点击后会下载字幕并打开,字幕文件存储位置为用户默认的附件存储位置
+
+![descript](images/media/1.3-version/image176.png)
+
+#### 2.6.4 在线视频播放与笔记记录
+
+我们可以对视频播放页点击下\"open media
+note\"，打开一个格式化的笔记页面：
+
+![descript](images/media/1.3-version/image177.png)
+
+我们可以点击照相机图标，它会将当前视频播放的页面图片截图，自动链接的笔记中，并附加播放时间戳（注意截屏图片保存在**附件文件夹**中，请查看obsidian配置图片的保存位置）：
+
+![descript](images/media/1.3-version/image178.png)
+
+其他media extended 插件的倍速播放、仅复制时间戳、复制视频地址、画中画等功能请自行探索，这里不再演示了。
+
+## 三、实用学习流程分享
+
+### 3.1 音视频下载与总结
+
+我们可以选择比如**b站的视频**，用**media extended**
+
+下载得到其音频文件，再用**工具箱内的语音转文字服务**，得到原视频的文本。最后，我们可以使用**obsidian copilot**插件切换至相应的**视频总结人设**，选中这段文本进行音频总结，获取视频总结内容，如下图：
+
+![descript](images/media/1.3-version/image179.png)
+
+![descript](images/media/1.3-version/image180.png)
+
+![descript](images/media/1.3-version/image181.png)
+
+![descript](images/media/1.3-version/image182.png)
+
+更多相关音视频与文字的联动操作请自行探索！
+
+### 3.2 优化影印版Pdf的阅读体验
+
+针对一些影印版的pdf，我们无法直接在pdf中选中文字编辑与复制。对于这种情况，可以先用我们\"1.3.4\"部分所讲到的PDF2Markdown功能进行此类书籍的转换。转换成功后得到markdown等资源，我们可以对这些内容进行人工校对，将其引用、标题、换行等错误排版规范化，人工校对经验请参考"md资料生产组"提供的校队文档：[Markdown学习资料校对手册](https://docs.qq.com/aio/DR3dZcWtyT0VkcXB5?no_promotion=1&p=uogzAL83IvlxXjkArvUDs2)
+
+校对完毕后，我们得到了比较规范的markdown格式的书籍，也可以直接进行阅读了。
+
+若对markdown的阅读体验不满意(当前版本的markdown书籍阅读上暂时没有比较规范的阅读记录保存、笔记记录方式等方式)，我这里推荐一个阅读记录方式：将校对好的markdown书籍使用obsidian插件如"better
+export
+pdf"插件进行pdf导出，然后我们在使用\"PDF++\"插件进行阅读，利用其良好的笔记记录方式进行阅读学习。
+
+![descript](images/media/1.3-version/image183.png)
+
+![descript](images/media/1.3-version/image184.png)
+
+![descript](images/media/1.3-version/image185.png)
+## 四、使用反馈
+
 在使用软件时遇到任何问题，欢迎加入QQ群807831970进行交流和咨询！
 
+### 4.1 基础模型部署使用问题
+
+#### 4.1.1 使用copilot时AI输出结果不是流式输出
+
+在copilot
+配置界面配置大模型时，如果接入时选择了CORS选项，会导致后续大模型回复非流式输出，而是等待输出完毕后，一次性进行输出。因此，为保证流式输出，请勿开启CORS选项
+
+![descript](images/media/1.3-version/image186.png)
+#### 4.1.2 LM Studio中的embedding模型出现无法调用情况
+
+- 报错：Error:Model is not embedding.
+
+- 模型管理中检查，模型可能未被识别成embedding模型
+
+![descript](images/media/1.3-version/image187.png)
+
+- 在LM Studio中将模型标记未embedding模型
+
+![descript](images/media/1.3-version/image188.png)
+
+### 4.2 语音模型部署使用问题
+
+#### 4.2.1 系统设置停止自动更新导致无法正常安装WSL
+
+安装wsl时产生安装podman安装失败的报错，可能是windows系统页面停止了自动更新。
+
+若AI学习助手助手启动器软件根目录的launcher.log日志显示如下内容：
+
+![descript](images/media/1.3-version/image189.png)
+
+遇到这种情况，请点击设置页面，在更新 Windows 时接收其他 Microsoft
+产品的更新，再在启动器工具箱界面点击安装WSL，即可解决。
+
+#### 4.2.2 ValueError：模型xxx未加载
+
+1.  检查模型选择，N卡选用index-tts模型，非N卡选择kokoro模型
+
+2.  选用模型没问题，但是模型未加载，则检查模型名称，严格区分大小写，例：kokoro不能写成大写Kokoro
+
+![descript](images/media/1.3-version/image190.png)
+
+#### 4.2.3 未联网状态下安装podman失败、初始化虚拟机失败，重启无用。
+
+尝试重装WSL
+
+### 4.3 插件使用问题
+
+#### 4.3.1 PDF++:Display text format is invalid.Error:Multiple markdown files are associated with this PDF file.
+
+删除与该 PDF 文件关联的互相冲突的笔记即可
+
+## 五、往期学习资料参考
+
+由于版本更新的缘故，可能部分使用方法已经过时，请根据实际情况学习使用：
+
+1.  [AI学习助手1.2发布啦！劲爆新功能！](https://www.bilibili.com/video/BV1JPuYzwE3B)
+
+2.  [AI学习助手1.0-软件设置](https://www.bilibili.com/video/BV1xbLizPEh3/)
+
+3.  [AI学习助手1.0-原理及概念介绍](https://www.bilibili.com/video/BV1R6L8zhEuf)
+
+4.  [大模型接入、阅读记录与AI交互](https://www.bilibili.com/video/BV1PBK5zLEmF/)
 
 
 # 第三部分：其他功能
@@ -1018,14 +1874,3 @@ Runtime中配置你的模型运行环境，分为三种模式CPU、CUDA、Vulkan
 
 感谢所有为项目付出的朋友们，因为你们才让我们的开源项目得以一步步落地！以下是贡献者及内容：
 
-### 1.1 版本 贡献名单
-
-| 贡献者 | 贡献内容 |
-|--------|---------|
-| 柯南 | obsidian插件开发、TTS多平台整合包制作 |
-| 罗鉴 | ASR后端开发、ASR多平台整合包制作、使用文档编辑 |
-| 南云 | TTS后端开发 |
-| 生年不满百 | obsidian插件开发 |
-| 岂能 | obsidian插件开发、学习助手整合、使用文档编辑 |
-| 教你说再见 | obsidian 插件开发、使用文档编辑 |
-| 简单（康） | obsidian插件开发 |
