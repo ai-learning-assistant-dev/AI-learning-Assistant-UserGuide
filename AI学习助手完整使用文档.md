@@ -1725,6 +1725,11 @@ pdf"插件进行pdf导出，然后我们在使用\"PDF++\"插件进行阅读，�
 
 尝试重装WSL
 
+
+#### 4.2.3 学习助手的WSL功能与windows的沙盒（WSB）功能冲突导致安装podman失败
+
+如标题原因，遇到此类情况，需要首先关闭Windows沙盒功能，再安装AI学习助手工具箱的语音包，才能正常运行。
+
 ### 4.3 插件使用问题
 
 #### 4.3.1 PDF++:Display text format is invalid.Error:Multiple markdown files are associated with this PDF file.
